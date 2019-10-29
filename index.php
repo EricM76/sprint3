@@ -9,7 +9,7 @@ if ($_POST):
         $usuario = BaseMySQL::buscarPorEmail($_POST["email"], $pdo, 'usuarios');
         //si está registrado devuelve un error
         if ($usuario != null) {
-          $errores[] = "El email ya se encuentra registrado";
+          $errores[5] = "El email ya se encuentra registrado";
           // var_dump($errores);
           //si no está registrado continúa con el registro
         } else {

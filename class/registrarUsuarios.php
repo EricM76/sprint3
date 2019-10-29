@@ -4,6 +4,8 @@ class RegistrarUsuarios{
 public function validarDatosUser($datos){
 //arrary de errores
     $errores = [];
+    $nac=strtotime($datos["fecha"]);
+    $limiteEdad=strtotime("-18 year");
 //validacion de errores
     if ($datos) {
       if (strlen($datos["nombre"])==0) {
@@ -17,6 +19,15 @@ public function validarDatosUser($datos){
       }
       if (strlen($datos["pass"])<8) {
         $errores[3] ="La contraseña tiene menos de 8 caracteres";
+      }
+      if ($nac>$limiteEdad) {
+        $errores[4] ="Eres menor de edad";
+      }
+      if ($datos["fecha"]== null) {
+        $errores[4]= "Debes indicar una fecha";
+      }
+      if (!isset($datos["sexo"])) {
+        $_POST["sexo"]="Indefinido";
       }
     }
     //retorna el array de errores
