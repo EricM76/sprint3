@@ -1,15 +1,19 @@
 <?php
-include_once("funciones.php");
-session_start();
+// include_once("funciones.php");
+include_once("autoload.php");
+
 
 if ($_POST) {
+
   $_SESSION["errorLogin0"]="";
   $_SESSION["errorLogin1"]="";
   // llamo a la funcion validarLogin para verificar si el email se encuentra registrado y si es así, verificar si la contraseña es la correcta
-$erroresLogin=validarLogin($_POST);
+// $erroresLogin=validarLogin($_POST);
+$erroresLogin=BaseMySQL::buscarPorEmail($_POST["email"],$pdo,'usuarios');
+
 // si no devuelve ningun error, accede al home
 
-if ($erroresLogin==null) {
+if ($erroresLogin!=null) {
   $_SESSION["userEmail"]=$_POST["email"];
   $_SESSION["userPass"]=$_POST["pass"];
   if (isset($_POST["recordar"])) {

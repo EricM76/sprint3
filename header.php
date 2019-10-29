@@ -5,7 +5,7 @@ if ($_SESSION["userEmail"]==null) {
 }
 include_once("funciones.php");
 $userEmail=$_SESSION["userEmail"];
-$usuario=verificarEmail($userEmail);
+// $usuario=verificarEmail($userEmail);
 // if (isset($_COOKIE["avatar"])) {
 //   $avatar=$_COOKIE["avatar"];
 // }

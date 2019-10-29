@@ -38,41 +38,6 @@ function validoEmail($dato,$error){
   }
 }
 
-// funcion de validacion de errores
-function validar($datos){
-  if ($datos) {
-    $errores = [];
-    $nac=strtotime($datos["fecha"]);
-    $limiteEdad=strtotime("-18 year");
-
-    // validacion de datos
-    if (strlen($datos["nombre"]) == 0) {
-      $errores[0] = "El campo nombre se encuentra vacio";
-    }
-    if (strlen($datos["apellido"]) == 0) {
-      $errores[1] = "El campo apellido se encuentra vacio";
-    }
-    if (!filter_var($datos["email"],FILTER_VALIDATE_EMAIL)) {
-      $errores[2]= "Debe ingresar un mail válido";
-    }
-    if (strlen($datos["pass"]) < 8 ) {
-      $errores[3]= "Se necesita al menos 8 caracteres";
-    }
-    if ($nac>$limiteEdad) {
-      $errores[4]= "Eres menor de edad";
-    }
-    if ($datos["fecha"]==null) {
-      $errores[4]= "Debes indicar una fecha";
-    }
-    if (!isset($datos["sexo"])) {
-      $_POST["sexo"]="Indefinido";
-    }
-    if (verificarEmail($datos["email"])!=null) {
-      $errores[5]= "El email ya está registrado";
-    }
-  }
-  return $errores;
-}
 function validarPerfil($datos){
   // validación de los archivos subidos
   $nombre=$_FILES["archivo"]["name"];
@@ -86,27 +51,7 @@ function validarPerfil($datos){
     return $errores;
   }
 }
-function guardarUsuario($usuario){
-  $json = json_encode($usuario);
-  file_put_contents("usuarios.json",$json.PHP_EOL, FILE_APPEND);
-}
-// funcion para abrir la base de datos que está en formato json
-function abrirJson(){
-  // si existe el archivo json que contiene la base de datos
-  if (file_exists("usuarios.json")) {
-    // crea una variable trayendo los datos de dicho archivo
-    $baseDatosJson = file_get_contents("usuarios.json");
-    // explora el contenido del archivo identificando los campos
-    $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
-    // borra el útimo registro que está en blanco
-    array_pop($baseDatosJson);
-    // crea el array $usuarios con los datos extraídos del formato json
-    foreach ($baseDatosJson as  $usuario) {
-    $usuarios[]= json_decode($usuario,true);}
-    // la funcion devuelve el array
-    return $usuarios;
-  }
-}
+
 // funcion que verifica si el email ingresado se encuentra en la base de datos
 function verificarEmail($email){
   // lo primero es traer el array que contiene la base de datos invocando la funcion que se hizo para dicho fin
