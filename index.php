@@ -1,27 +1,27 @@
 <?php
 require_once("funciones.php");
 require_once("autoload.php");
-session_start();
-if ($_POST):
-  $errores = validar($_POST);
-  if (count($errores) == 0) :
-    $usuario = [
-      "nombre" =>  $_POST["nombre"],
-      "apellido" => $_POST["apellido"],
-      "email" => $_POST["email"],
-      "pass" =>password_hash($_POST["pass"],PASSWORD_DEFAULT),
-      "fecha"=> $_POST["fecha"],
-      "sexo" => $_POST["sexo"],
-      "avatar" => "images/avatar/perfilDesconocido.png",
-      "perfil" => null,
-    ];
 
-    guardarUsuario($usuario);
-    $_SESSION['userEmail']= $_POST['email'];
-    $_SESSION['userPass']= $_POST['pass'];
-    header('location:index.php');
+if ($_POST):
+  $errores = $validadorUsuario->validarDatosUser($_POST);
+  if (count($errores) == 0) {
+      //busca si el email está registrado
+        $usuario = BaseMySQL::buscarPorEmail($_POST["email"], $pdo, 'usuarios');
+        //si está registrado devuelve un error
+        if ($usuario != null) {
+          $errores[] = "El email ya se encuentra registrado";
+          // var_dump($errores);
+          //si no está registrado continúa con el registro
+        } else {
+          //genera un usuario
+          $usuario = RegistrarUsuarios::crearUsuario($_POST);
+          RegistrarUsuarios::guardarUsuario($pdo, $usuario);
+          header("location:index.php");
+        }
+    }else{
+      // var_dump($errores);
+    }
   endif;
-endif;
  ?>
 
 <!DOCTYPE html>
