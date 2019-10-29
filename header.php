@@ -1,11 +1,11 @@
 <?php
-session_start();
+include_once('autoload.php');
 if ($_SESSION["userEmail"]==null) {
   header("location:error.php");
 }
 include_once("funciones.php");
 $userEmail=$_SESSION["userEmail"];
-// $usuario=verificarEmail($userEmail);
+$usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
 // if (isset($_COOKIE["avatar"])) {
 //   $avatar=$_COOKIE["avatar"];
 // }
@@ -89,10 +89,10 @@ $userEmail=$_SESSION["userEmail"];
           </div>
           <div class="text-center mt-2">
             <a class="" href="perfil.php">
-              <?php  if($usuario["avatar"]!=null){?>
-                <img class="user" src="<?=$usuario["avatar"]?>">
+              <?php  if($usuario["perfil"]!=null){?>
+                <img class="user" src="images/perfil/<?=$usuario["perfil"]?>">
               <?php }else {?>
-              <img class="user" src="<?=$usuario["perfil"]?>">
+              <img class="user" src="images/avatar/<?=$usuario["avatar"]?>">
               <?php } ?>
             <h5 class="text-white mt-1"><?=$usuario["nombre"]. " " . $usuario["apellido"]?></h5>
           </div>

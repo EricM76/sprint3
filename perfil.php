@@ -54,24 +54,7 @@ if ($_POST) {
         <div class="">
           <p class="text-danger small"><?php if(isset($errores[0]))echo$errores[0]?></p>
           <p class="text-danger small"><?php if(isset($errores[1]))echo$errores[1]?></p>
-          <!-- <script type="text/javascript">
-          function perfil(){
-            window.opener.document.href="#avatar";
-          }
-          perfil();
-          </script> -->
         </div>
-        <!-- <script type="text/javascript">
-        function error(){
-        Swal.fire({
-          title: 'Error!',
-          text: 'Do you want to continue',
-          type: 'error',
-          confirmButtonText: 'Cool'
-          })
-        }
-        error();
-        </script> -->
       <?php endif ?>
     </div>
 
