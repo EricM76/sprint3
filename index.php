@@ -1,5 +1,6 @@
 <?php
 require_once("funciones.php");
+require_once("autoload.php");
 session_start();
 if ($_POST):
   $errores = validar($_POST);
