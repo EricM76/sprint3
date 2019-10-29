@@ -1,0 +1,73 @@
+header{
+  background-color: #3f51b5;
+  /* height: 100px; */
+}
+/* en bootstrap xl (extralargo) - se aplica hasta 1440px */
+.carousel-inner {
+  height: 220px;
+}
+
+@media (max-width: 1440px) {
+header{
+  /* background-color: grey; */
+}
+.logo{
+  text-align: center;
+}
+.logo img{
+  width: 400px;
+  margin-top: 10%;
+}
+.registro{
+  margin-right: 0px;
+}
+}
+/* en bootstrap lg (largo) - se aplica hasta 1200px */
+
+@media (max-width: 1200px) {
+header{
+  /* background-color: green; */
+}
+.registro{
+  margin-right: 0px;
+}
+/* en bootstrap md (mediano) - se aplica hasta 992px */
+
+@media (max-width: 992px) {
+header{
+  /* background-color: yellow; */
+}
+.carousel-inner {
+  height: 190px;
+}
+
+}
+/* en bootstrap sm (pequeño) - se aplica hasta 768px */
+
+@media (max-width: 768px) {
+header{
+  /* background-color: blue; */
+}
+.botonIniciar{
+  text-align: center;
+}
+.carousel-inner {
+  height: 160px;
+}
+}
+/* en bootstrap xs (extra-pequeño) - se aplica hasta 576px */
+@media (max-width: 576px) {
+header{
+  /* background-color: red; */
+}
+.botonIniciar{
+  text-align: center;
+}
+.carrousel{
+  display: none;
+}
+.carousel-inner {
+  height: 120px;
+}
+
+}

@@ -1,0 +1,46 @@
+.avatar {
+  margin: 25px auto;
+}
+img.user {
+  height: 60px;
+  width: 60px;
+  background-color: #777;
+  box-shadow: 0 0 0 2px white;
+  border-radius: 50%;
+  will-change: transform;
+}
+img.user:hover {
+  cursor: pointer;
+  -webkit-animation: bounceOut 0.4s linear;
+          animation: bounceOut 0.4s linear;
+}
+@keyframes bounceOut {
+  0% {
+    box-shadow: 0 0 0 4px white;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    box-shadow: 0 0 0 1px white;
+    opacity: 1;
+    -webkit-transform: scale(0.97);
+            transform: scale(0.97);
+  }
+  50% {
+    box-shadow: 0 0 0 7px white;
+    opacity: 1;
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+  }
+  75% {
+    box-shadow: 0 0 0 4px white;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 5px white;
+    opacity: 1;
+  }
+}
