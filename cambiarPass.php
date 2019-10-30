@@ -1,10 +1,10 @@
 <?php
-session_start();
+include_once("autoload.php");
 include_once("funciones.php");
 if ($_POST) {
-$error=cambiarPass($_POST["email"],$_POST["fecha"],$_POST["pass"]);
-$_SESSION["errorPass"]=$error;
-if ($error==null) {
+$error = RegistrarUsuarios::cambiarPass($_POST["email"],$_POST["fecha"],$_POST["pass"],$pdo);
+// $_SESSION["errorPass"] = $error;
+if ($error == null) {
   $_SESSION["userEmail"]=$_POST["email"];
   $_SESSION["userPass"]=$_POST["pass"];
   header("location:home.php");

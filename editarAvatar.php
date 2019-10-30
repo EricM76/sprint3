@@ -11,7 +11,7 @@
       <div class="modal-body">
         <h5 class="text-center mb-3">cambia un avatar</h5>
         <!-- genera la variable con el id recibido -->
-        <?php $id=$_GET["id"]?>
+        <?php $id=$_SESSION["id"]?>
         <!-- abre la pagina cambiarAvatar pasando el nombre del archivo para el campo 'avatar' y el id correspondiente por $_GET-->
             <a href="cambiarAvatar.php?avatar=perfilDesconocido.png & id=<?=$id?>"><img src="images/avatar/perfilDesconocido.png" style="width:80px"></a>
             <a href="cambiarAvatar.php?avatar=perfilHombre.png & id=<?=$id?>"><img src="images/avatar/perfilHombre.png" style="width:80px"></a>
@@ -43,7 +43,6 @@
 
           <div class="d-flex mt-5">
             <div class="d-flex justify-content-center col-12">
-              <!-- formulario que envía los datos por $_POST a la pagina cambiarAvatar con los datos de la imagen por $_FILES y el id por $_POST -->
               <form class="form" action="cambiarAvatar.php" method="POST" enctype="multipart/form-data">
                 <h5 class="mt-3">O sube tu propia imagen</h5>
                 <div class="input-group mt-3">
@@ -51,7 +50,7 @@
                     <input id="inputGroupFile01" type="file" class="custom-file-input" name="imagen">
                     <label class="custom-file-label" for="inputGroupFile01">elegir foto de perfil</label>
                   </div>
-                  <button class="btn btn-primary ml-2" value=<?=$_GET["id"]?> type="submit" name="id">Aceptar</button>
+                  <button class="btn btn-primary ml-2" value=<?=$id?> type="submit" name="id">Aceptar</button>
                 </div>
               </form>
             </div>

@@ -26,8 +26,8 @@ public function validarDatosUser($datos){
       if ($datos["fecha"]== null) {
         $errores[4]= "Debes indicar una fecha";
       }
-      if (!isset($datos["sexo"])) {
-        $_POST["sexo"]="Indefinido";
+      if (isset($datos["sexo"]) && $datos["sexo"]==null) {
+        $_POST["sexo"]="i";
       }
     }
     //retorna el array de errores
@@ -37,15 +37,16 @@ public function validarDatosUser($datos){
   public static function crearUsuario($datos){
     //hasheo de contraseña
     $contraHash = password_hash($datos["pass"], PASSWORD_DEFAULT);
+    $datos["avatar"] = "perfilDesconocido.png";
     //crea una instancia de la clase usuario con los datos recibidos por $_POST. El avatar, perfil y val_user se pasan como un para luego ser cargados de forma independiente
-    $usuario = new Usuario($datos["nombre"], $datos["apellido"], $datos["email"], $contraHash, $datos["fecha"],$datos["sexo"], null, null, null);
+    $usuario = new Usuario($datos["nombre"], $datos["apellido"], $datos["email"], $contraHash, $datos["fecha"], $datos["sexo"], $datos["avatar"], null, null);
     //retorna la instancia de la clase usuario
     return $usuario;
   }
 //funcion para guardar un nuevo usuario
   static public function guardarUsuario($pdo, $usuario){
     //genera la consulta sql
-      $sql = "INSERT INTO usuarios VALUES(default, :nombre, :apellido, :email, :pass, :fecha, :sexo, :avatar=null, :perfil=null, :val_user=null)";
+      $sql = "INSERT INTO usuarios VALUES(default, :nombre, :apellido, :email, :pass, :fecha, :sexo, :avatar, :perfil=null, :val_user=null)";
       //prepara la consulta
       $guardarUsu = $pdo->prepare($sql);
       //bindea los datos
@@ -66,6 +67,9 @@ public function validarDatosUser($datos){
     $sql = "UPDATE usuarios SET avatar ='$avatar' WHERE id ='$id'";
     $query = $pdo->prepare($sql);
     $query->execute();
+    $sql = "UPDATE usuarios SET perfil = null WHERE id = '$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
   }
 //funcion que permite guardar la imagen de perfil y actualizarla en la bd
   public static function guardarPerfil($pdo,$id,$imagen){
@@ -81,6 +85,32 @@ public function validarDatosUser($datos){
     $sql = "UPDATE usuarios SET perfil ='$nombreImg."."$ext' WHERE id ='$id'";
     $query = $pdo->prepare($sql);
     $query->execute();
+  }
+
+  function cambiarPass($email,$fecha,$pass,$pdo){
+    $error[] = null;
+    $usuario = BaseMySQL::buscarPorEmail($email,$pdo,'usuarios');
+    $id = $usuario['id'];
+  if ($usuario == null) {
+    $error[0] = "El email no está registrado";
+    return $error[0];
+  }
+  if ($fecha == null) {
+    $error[1] = "Se requiere una fecha para validar identidad";
+    return $error[1];
+  }
+  if ($usuario["fecha"]!=$fecha) {
+    $error[2]="La fecha no coincide con el usuario";
+    return $error[2];
+  }
+  if (strlen($pass) < 8 ) {
+    $error[3]="La contraseña debe tener al menos 8 caracteres";
+    return $error[3];
+  }
+  $passHash = password_hash($pass, PASSWORD_DEFAULT);
+  $sql = "UPDATE usuarios SET pass = '$passHash' WHERE id = $id";
+  $query = $pdo->prepare($sql);
+  $query->execute();
 
   }
 }

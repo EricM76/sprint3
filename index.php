@@ -16,6 +16,8 @@ if ($_POST):
           //genera un usuario
           $usuario = RegistrarUsuarios::crearUsuario($_POST);
           RegistrarUsuarios::guardarUsuario($pdo, $usuario);
+          
+          $_SESSION["userEmail"] = $_POST["email"];
           header("location:index.php");
         }
     }else{
@@ -90,11 +92,11 @@ if ($_POST):
             <div class="form-group col-xs-12 col-sm-12 col-lg-6">
               <label class=""for="">Sexo</label><br>
               <div class="form-check form-check-inline">
-                <input class="form-check-input p m" type="radio" name="sexo" value="Hombre">
+                <input class="form-check-input p m" type="radio" name="sexo" value="h">
                 <label class="form-check-label" for="p m">Hombre</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input p m" type="radio" name="sexo" value="Mujer">
+                <input class="form-check-input p m" type="radio" name="sexo" value="m">
                 <label class="form-check-label" for="p m">Mujer</label>
               </div>
             </div>
@@ -109,7 +111,7 @@ if ($_POST):
 <?php
 include("questions.php");
 ?>
-  <footer class="bg-danger text-center mt-5">
+  <footer class="bg-danger text-center mt-4">
     <span class="text-white ">Todos los derechos reservados - AEM - Trabajo Integrador para DigitalHouse 2019</span>
   </footer>
     <script src="js/jquery.js"type="text/javascript"></script>

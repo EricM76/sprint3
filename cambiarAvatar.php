@@ -3,6 +3,7 @@ include_once("autoload.php");
 // recibe el nombre del archivo del avatar y el id por $_GET
 if (isset($_GET["avatar"])) {
   //llama a la funcion 'cambiarAvatar' pasando los datos correspondientes
+  BaseMySQL::eliminarImgPerfil($pdo,$_GET["id"]);
   RegistrarUsuarios::cambiarAvatar($_GET["id"], $_GET["avatar"],$pdo);
   //vuelve a cargar la pagina de registros
   header("location:perfil.php");

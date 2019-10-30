@@ -1,17 +1,12 @@
 <?php
 include_once('autoload.php');
-if ($_SESSION["userEmail"]==null) {
+if ($_SESSION["userEmail"] == null) {
   header("location:error.php");
 }
-include_once("funciones.php");
+
 $userEmail=$_SESSION["userEmail"];
 $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
-// if (isset($_COOKIE["avatar"])) {
-//   $avatar=$_COOKIE["avatar"];
-// }
-// if (isset($_COOKIE["imgPerfil"])) {
-//   $avatar=$_COOKIE["imgPerfil"];
-// }
+
 
  ?>
  <head>
@@ -89,11 +84,7 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
           </div>
           <div class="text-center mt-2">
             <a class="" href="perfil.php">
-              <?php  if($usuario["perfil"]!=null){?>
-                <img class="user" src="images/perfil/<?=$usuario["perfil"]?>">
-              <?php }else {?>
-              <img class="user" src="images/avatar/<?=$usuario["avatar"]?>">
-              <?php } ?>
+              <img src=<?php if($usuario['perfil'] == null){echo "images/avatar/".$usuario["avatar"];}else{echo "images/perfil/".$usuario["perfil"];}?> alt="imagen de perfil" class="user">
             <h5 class="text-white mt-1"><?=$usuario["nombre"]. " " . $usuario["apellido"]?></h5>
           </div>
 
