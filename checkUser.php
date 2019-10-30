@@ -1,5 +1,6 @@
 <?php
 include_once("autoload.php");
+include_once("funciones.php");
 
 if ($_POST) {
 
@@ -21,9 +22,9 @@ if ($usuario!=null) {
     header("location:index.php");
   };
 
-  // if (isset($_POST["recordar"])) {
-  //   guardaCookie($_POST["email"],$_POST["pass"]);
-  // }
+  if (isset($_POST["recordar"])) {
+    guardaCookie($_POST["email"],$_POST["pass"]);
+  }
 
 }else {
   $_SESSION["errorLogin0"]="no se encuentra registrado";

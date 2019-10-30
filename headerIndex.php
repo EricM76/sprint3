@@ -1,9 +1,9 @@
 <?php
+include_once("autoload.php");
 setcookie("errorLogin0", "",0);
 setcookie("errorLogin1", "",0);
 if (isset($_COOKIE["userEmail"])) {
-  $_SESSION["userEmail"]=$_COOKIE["userEmail"];
-  // $_SESSION["userPass"]=$_COOKIE["userPass"];
+  $_SESSION["userEmail"] = $_COOKIE["userEmail"];
   header("location:home.php");
 }
  ?>

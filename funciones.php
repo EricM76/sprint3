@@ -54,6 +54,5 @@ function validarPerfil($datos){
 
 function guardaCookie($email,$pass){
   setcookie("userEmail",$email,time()+(3600*24*365));
-  setcookie("userPass",$pass,time()+(3600*24*365));
 }
   ?>
