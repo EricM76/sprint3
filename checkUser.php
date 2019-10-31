@@ -13,8 +13,7 @@ if ($usuario!=null) {
 
   $errores = Validacion::validarLogin($_POST['pass'],$usuario['pass']);
   if ($errores == null) {
-    $_SESSION["id"] = $usuario['id'];
-    $_SESSION["userEmail"] = $usuario['email'];
+    Autenticacion::inicioSesion($usuario);
     header("location:home.php");
   }else{
     $_SESSION["errorLogin1"] ="contraseña incorrecta";

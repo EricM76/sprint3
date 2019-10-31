@@ -38,20 +38,6 @@ function validoEmail($dato,$error){
   }
 }
 
-function validarPerfil($datos){
-  // validación de los archivos subidos
-  $nombre=$_FILES["archivo"]["name"];
-  $ext=pathinfo($nombre, PATHINFO_EXTENSION);
-  if ($_FILES["archivo"]["error"]!=0) {
-    $errores[0]="Debes subir una imagen para cambiar tu foto de perfil";
-    return $errores;
-  }
-  if ($ext!="jpg" && $ext!="jpeg" && $ext!="png"){
-    $errores[1]="Los formatos permitidos son jpg, jpeg y png";
-    return $errores;
-  }
-}
-
 function guardaCookie($email,$pass){
   setcookie("userEmail",$email,time()+(3600*24*365));
 }

@@ -3,7 +3,7 @@ include_once("autoload.php");
 setcookie("errorLogin0", "",0);
 setcookie("errorLogin1", "",0);
 if (isset($_COOKIE["userEmail"])) {
-  $_SESSION["userEmail"] = $_COOKIE["userEmail"];
+  Autenticacion::inicioCookies($_COOKIE["userEmail"],$pdo);
   header("location:home.php");
 }
  ?>

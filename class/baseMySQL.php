@@ -66,7 +66,7 @@ class BaseMySQL extends BaseDatos{
     }
 
     public static function eliminarImgPerfil($pdo,$id){
-      $sql = "SELECT perfil FROM usuarios WHERE id LIKE $id";
+      $sql = "SELECT perfil FROM usuarios WHERE id LIKE '$id'";
       $query = $pdo->prepare($sql);
       $query->execute();
       $perfil = $query->fetch(PDO::FETCH_ASSOC);
