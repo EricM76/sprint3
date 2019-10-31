@@ -41,7 +41,7 @@ if ($_POST) {
    <head>
      <meta charset="utf-8">
      <?php include("head.php")?>
-     <title>Nueva Publicacion</title>
+     <title>Publicar Producto</title>
    </head>
      <?php include("header.php") ?>
    <body>
@@ -101,14 +101,13 @@ if ($_POST) {
       <div class="d-flex justify-content-end">
         <div class="form-group">
           <div class="">
-            <a href="<?=$_SERVER["HTTP_REFERER"]?>"><button id="cancelar" name="cancelar" class="btn btn-danger">cancelar</button></a>
-            <button value=<?=$_POST['id']?> name=id class="btn btn-success">Publicar</button>
+            <button value=<?=$_SESSION['id']?> name=id class="btn btn-success">Publicar</button>
           </div>
         </div>
       </div>
 
     </div>
   </form>
-     <?php include("javascript.php") ?>
+     <?php include_once("script.php") ?>
    </body>
  </html>
