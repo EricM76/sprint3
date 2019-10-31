@@ -39,22 +39,21 @@ if ($_POST) {
  <!DOCTYPE html>
  <html lang="es" dir="ltr">
    <head>
-     <meta charset="utf-8">
-     <?php include("head.php")?>
+     <?php include_once("head.php")?>
      <title>Publicar Producto</title>
    </head>
-     <?php include("header.php") ?>
    <body>
+     <?php include_once("header.php") ?>
      <div class="container">
 
-      <form class="form-horizontal mt-5" action="producto.php" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal mt-5" action="nuevoProducto.php" method="post" enctype="multipart/form-data">
         <div class="row">
 
         <div class="col-6">
           <div class="form-group">
             <label class="control-label" for="titulo">Titulo</label>
             <div class="">
-            <input id="titulo" name="titulo" type="text" placeholder="titulo" class="form-control input-md" >
+            <input name="titulo" type="text" placeholder="titulo" class="form-control input-md" >
             </div>
           </div>
 
@@ -101,13 +100,12 @@ if ($_POST) {
       <div class="d-flex justify-content-end">
         <div class="form-group">
           <div class="">
-            <button value=<?=$_SESSION['id']?> name=id class="btn btn-success">Publicar</button>
+            <button value=<?=$_SESSION['id']?> class="btn btn-success" type="submit">Publicar</button>
           </div>
         </div>
       </div>
-
+    </form>
     </div>
-  </form>
      <?php include_once("script.php") ?>
    </body>
  </html>

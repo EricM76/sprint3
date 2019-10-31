@@ -77,7 +77,7 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
           <div class="mr-4 mt-2">
             <div class="">
               <a href="nuevoProducto.php">
-              <button class="btn btn-warning btn-sm my-2 -my-sm-0"type="button" name="button"> Publicar!</button>
+              <button class="btn btn-warning btn-sm my-2 -my-sm-0" type="button"> Publicar!</button></a>
               <button class="btn btn-danger btn-sm my-2 -my-sm-0"type="button" name="button">Truekoins</button>
 
               <!-- <a class="text-white mt-2" href="cerrar.php">Salir</a> -->
@@ -85,7 +85,7 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
           </div>
           <div class="text-center mt-2">
             <a class="" href="perfil.php">
-              <img src=<?php if($usuario['perfil'] == null){echo "images/avatar/".$usuario["avatar"];}else{echo "images/perfil/".$usuario["perfil"];}?> alt="imagen de perfil" class="user">
+              <img src=<?php if($usuario['perfil'] == null){echo "images/avatar/".$usuario["avatar"];}else{echo "images/perfil/".$usuario["perfil"];}?> alt="imagen de perfil" class="user"></a>
             <h5 class="text-white mt-1"><?=$usuario["nombre"]. " " . $usuario["apellido"]?></h5>
           </div>
 
