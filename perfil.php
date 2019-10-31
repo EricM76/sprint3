@@ -1,5 +1,16 @@
 <?php
 include_once("autoload.php");
+if ($_POST) {
+  if ($_POST["direccion"]!=null) {
+    RegistrarUsuarios::actualizarDireccion($_SESSION["id"],$_POST["direccion"],$pdo);
+  }
+  if ($_POST["telefono"]!=null) {
+    RegistrarUsuarios::actualizarTelefono($_SESSION["id"],$_POST["telefono"],$pdo);
+  }
+  if ($_POST["celular"]!=null) {
+    RegistrarUsuarios::actualizarCelular($_SESSION["id"],$_POST["celular"],$pdo);
+  }
+}
  ?>
 
  <!DOCTYPE html>
@@ -13,7 +24,7 @@ include_once("autoload.php");
      <?php include_once("header.php")?>
   <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-5 img">
+    <div class="col-xs-12 col-md-4 img">
 
       <a href="#" data-toggle="modal" data-target="#avatar">
         <img src=<?php if($usuario['perfil'] == null){echo "images/avatar/".$usuario["avatar"];}else{echo "images/perfil/".$usuario["perfil"];}?> alt="imagen de perfil" class="" style="width:300px"><br></a><br>
@@ -28,35 +39,46 @@ include_once("autoload.php");
       <?php endif ?>
     </div>
 
-    <div class="col-xs-12 col-md-7 details">
+    <div class="col-xs-12 col-md-8 details">
       <blockquote>
         <h2><?php echo $usuario["nombre"]." ".$usuario["apellido"]?></h2>
         <h4><cite title="Source Title"><?=$usuario["email"]?></cite></h4>
       </blockquote>
       <hr>
-    <cite>Datos Personales</cite><br>
-    <h5>
-      <?php
-      switch ($usuario['sexo']) {
-        case 'h':
-          echo "hombre";
-          break;
-        case 'm':
-          echo "mujer";
-          break;
-        case 'i':
-          echo "indefinido";
-          break;
-        }
-      ?>
-    </h5>
-    <h5><?=date("d/m/Y", strtotime($usuario["fecha"]))?></h5>
+    <p><u>DATOS PERSONALES</u></p>
+    <div class="col-12">
+      <h6 class="ml-2"><strong>sexo: </strong>
+        <?php
+        switch ($usuario['sexo']) {
+          case 'h':
+            echo "hombre";
+            break;
+          case 'm':
+            echo "mujer";
+            break;
+          case 'i':
+            echo "indefinido";
+            break;
+          }
+        ?>
+      </h6>
+      <h6 class="ml-2"><strong>cumpleaños: </strong><?=date("d/m/Y", strtotime($usuario["fecha"]))?></h6>
+    </div>
+
     <hr>
-    <cite>Datos de Contacto</cite><br>
-    <a href="" data-toggle="modal" data-target="#actualizar">agregar dirección</a><br>
-    <a href="#">agregar teléfono</a><br>
-    <a href="#">agregar celular</a><br>
+    <p><u>DATOS DE CONTACTO</u></p>
+    <div class="col-12">
+      <h6 class="ml-2"><strong>dirección: </strong><?=$usuario["direccion"]?></h6>
+      <h6 class="ml-2"><strong>teléfono: </strong><?=$usuario["telefono"]?></h6>
+      <h6 class="ml-2"><strong>celular: </strong><?=$usuario["celular"]?></h6>
+    </div>
+
+    <a href=""><button class="btn btn-warning btn-sm my-2 -my-sm-0 mt-4"type="button" name="button" >Mis Truekes</button></a>
+
+    <a href="" data-toggle="modal" data-target="#actualizar" ><button class="btn btn-info btn-sm my-2 -my-sm-0 mt-4"type="button" name="button" >Modificar Datos</button></a>
+
     <a href="cerrar.php"><button class="btn btn-secondary btn-sm my-2 -my-sm-0 mt-4"type="button" name="button" >Cerrar Sesion</button></a>
+
     <a href="" data-toggle="modal" data-target="#borrar"><button class="btn btn-danger btn-sm my-2 -my-sm-0 mt-4" type="button" name="button" >Eliminar Cuenta</button></a>
     </div>
   </div>
