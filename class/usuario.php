@@ -10,9 +10,13 @@ class Usuario{
     private $avatar;
     private $perfil;
     private $val_user;
-    
+    private $direccion;
+    private $telefono;
+    private $celular;
+
+
 //funcion constructora
-    public function __construct($nombre, $apellido, $email, $pass, $fecha, $sexo, $avatar, $perfil, $val_user){
+    public function __construct($nombre, $apellido, $email, $pass, $fecha, $sexo, $avatar, $perfil, $val_user, $direccion, $telefono, $celular){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->email = $email;
@@ -22,6 +26,10 @@ class Usuario{
         $this->avatar = $avatar;
         $this->perfil = $perfil;
         $this->val_user = $val_user;
+        $this->direccion = $direccion;
+        $this->telefono = $telefono;
+        $this->celular = $celular;
+
     }
 
     public function getNombre()
@@ -131,5 +139,43 @@ class Usuario{
 
         return $this;
     }
+
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getCelular()
+    {
+        return $this->celular;
+    }
+
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+
+        return $this;
+    }
+
+
 }
 ?>

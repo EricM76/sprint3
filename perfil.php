@@ -53,7 +53,7 @@ include_once("autoload.php");
     <h5><?=date("d/m/Y", strtotime($usuario["fecha"]))?></h5>
     <hr>
     <cite>Datos de Contacto</cite><br>
-    <a href="#">agregar dirección</a><br>
+    <a href="" data-toggle="modal" data-target="#actualizar">agregar dirección</a><br>
     <a href="#">agregar teléfono</a><br>
     <a href="#">agregar celular</a><br>
     <a href="cerrar.php"><button class="btn btn-secondary btn-sm my-2 -my-sm-0 mt-4"type="button" name="button" >Cerrar Sesion</button></a>
@@ -64,6 +64,7 @@ include_once("autoload.php");
     <?php
     include_once("borrarCuenta.php");
     include_once("editarAvatar.php");
+    include_once("actualizarDatos.php");
     include_once("script.php");
     ?>
    </body>

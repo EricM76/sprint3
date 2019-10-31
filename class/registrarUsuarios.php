@@ -39,14 +39,14 @@ public function validarDatosUser($datos){
     $contraHash = password_hash($datos["pass"], PASSWORD_DEFAULT);
     $datos["avatar"] = "perfilDesconocido.png";
     //crea una instancia de la clase usuario con los datos recibidos por $_POST. El avatar, perfil y val_user se pasan como un para luego ser cargados de forma independiente
-    $usuario = new Usuario($datos["nombre"], $datos["apellido"], $datos["email"], $contraHash, $datos["fecha"], $datos["sexo"], $datos["avatar"], null, null);
+    $usuario = new Usuario($datos["nombre"], $datos["apellido"], $datos["email"], $contraHash, $datos["fecha"], $datos["sexo"], $datos["avatar"], null, null, null, null, null);
     //retorna la instancia de la clase usuario
     return $usuario;
   }
 //funcion para guardar un nuevo usuario
   static public function guardarUsuario($pdo, $usuario){
     //genera la consulta sql
-      $sql = "INSERT INTO usuarios VALUES(default, :nombre, :apellido, :email, :pass, :fecha, :sexo, :avatar, :perfil=null, :val_user=null)";
+      $sql = "INSERT INTO usuarios VALUES(default, :nombre, :apellido, :email, :pass, :fecha, :sexo, :avatar, :perfil=null, :val_user=null, :direccion=null, :telefono=null, :celular=null)";
       //prepara la consulta
       $guardarUsu = $pdo->prepare($sql);
       //bindea los datos
@@ -59,6 +59,10 @@ public function validarDatosUser($datos){
       $guardarUsu->bindValue(':avatar', $usuario->getAvatar());
       $guardarUsu->bindValue(':perfil', $usuario->getPerfil());
       $guardarUsu->bindValue(':val_user', $usuario->getVal_user());
+      $guardarUsu->bindValue(':direccion', $usuario->getDireccion());
+      $guardarUsu->bindValue(':telefono', $usuario->getTelefono());
+      $guardarUsu->bindValue(':celular', $usuario->getCelular());
+
       //ejecuta la consulta
       $guardarUsu->execute();
   }
@@ -113,5 +117,24 @@ public function validarDatosUser($datos){
   $query->execute();
 
   }
+
+  public static function actualizarDireccion($id,$direccion,$pdo){
+    $sql = "UPDATE usuarios SET direccion='$direccion' WHERE id ='$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+  }
+
+  public static function actualizarTelefono($id,$telefono,$pdo){
+    $sql = "UPDATE usuarios SET telefono='$telefono' WHERE id ='$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+  }
+
+  public static function actualizarCelular($id,$celular,$pdo){
+    $sql = "UPDATE usuarios SET celular='$celular' WHERE id ='$id'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+  }
+
 }
  ?>
