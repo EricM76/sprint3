@@ -76,7 +76,8 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
         <div class="d-flex flex-row justify-content-end col-xs-12 col-sm-6 col-md-3 col-lg- col-xl-7">
           <div class="mr-4 mt-2">
             <div class="">
-              <button class="btn btn-warning btn-sm my-2 -my-sm-0"type="button" name="button">Truekear!</button>
+              <a href="nuevoProducto.php">
+              <button class="btn btn-warning btn-sm my-2 -my-sm-0"type="button" name="button"> Publicar!</button>
               <button class="btn btn-danger btn-sm my-2 -my-sm-0"type="button" name="button">Truekoins</button>
 
               <!-- <a class="text-white mt-2" href="cerrar.php">Salir</a> -->
