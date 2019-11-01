@@ -1,3 +1,15 @@
+<?php
+include_once('autoload.php');
+$autos = BaseMySQL::verProductos($pdo,'1');
+$auto0 = $autos[0];
+$auto1 = $autos[1];
+$auto2 = $autos[2];
+$auto3 = $autos[3];
+$auto4 = $autos[4];
+$auto5 = $autos[5];
+$auto6 = $autos[6];
+$auto7 = $autos[7];
+ ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -33,7 +45,7 @@
                 <div class="position-relative">
                     <!--thumbnail img-->
                   <div class="ratio_left-cover-1 image-wrapper">
-                      <a href="#"><img class="img-fluid w-100" src="images/autos/img50.jpg" alt="Image description"></a>
+                      <a href=<?="post_auto.php?id=".$auto0["usuario_id"]?>><img class="img-fluid w-100" src=<?="images/productos/".$auto0["foto1"]?> alt="Image description" style = 'height:400px'></a>
                   </div>
                   <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                     <ul class="social">
@@ -42,9 +54,9 @@
                       <li><a href="" data-tip="Comenzar trueke"><i class="fa fa-handshake-o"></i></a></li>
                     </ul>
                       <!--title-->
-                    <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 "> Chevrolet Spin </h2></a>
+                    <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 "> <?=$auto0["titulo"] ?> </h2></a>
                     <div class="news-meta ml-5">
-                      <span class="news-author badge badge-primary"><span class="text-white font-weight-bold">5900</span> truekoins</span>
+                      <span class="news-author badge badge-primary"><span class="text-white font-weight-bold"><?=$auto0["valor"]?></span> truekoins</span>
                     </div>
                   </div>
                 </div>
@@ -57,7 +69,7 @@
                   <div class="position-relative">
                       <!--thumbnail img-->
                     <div class="ratio_left-cover-1 image-wrapper">
-                        <a href="#"><img class="img-fluid w-100" src="images/autos/img40.jpg" alt="Image description"></a>
+                        <a href=<?="post_auto.php?id=".$auto1["usuario_id"]?>><img class="img-fluid w-100" src=<?="images/productos/".$auto1["foto1"]?> alt="Image description" style = 'height:400px'></a>
                     </div>
                     <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                       <ul class="social ">
@@ -66,9 +78,9 @@
                         <li><a href="" data-tip="Comenzar trueke"><i class="fa fa-handshake-o"></i></a></li>
                       </ul>
                         <!--title-->
-                      <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 ">Fiat Palio 1.6 Essence</h2></a>
+                      <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 "><?=$auto1["titulo"] ?></h2></a>
                       <div class="news-meta ml-5">
-                        <span class="news-author badge badge-primary"><span class="text-white font-weight-bold">2200</span> truekoins</span>
+                        <span class="news-author badge badge-primary"><span class="text-white font-weight-bold"><?=$auto1["valor"]?></span> truekoins</span>
                       </div>
                     </div>
                   </div>
@@ -81,7 +93,7 @@
                 <div class="position-relative">
                     <!--thumbnail img-->
                   <div class="ratio_left-cover-1 image-wrapper">
-                      <a href="#"><img class="img-fluid w-100" src="images/autos/img30.jpg" alt="Image description"></a>
+                      <a href=<?="post_auto.php?id=".$auto2["usuario_id"]?>><img class="img-fluid w-100" src=<?="images/productos/".$auto2["foto1"]?> alt="Image description" style = 'height:400px'></a>
                   </div>
                   <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                     <ul class="social ">
@@ -90,9 +102,9 @@
                       <li><a href="" data-tip="Comenzar trueke"><i class="fa fa-handshake-o"></i></a></li>
                     </ul>
                       <!--title-->
-                    <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 ">Kia Sportage 2014</h2></a>
+                    <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 "><?=$auto2["titulo"] ?></h2></a>
                     <div class="news-meta ml-5">
-                      <span class="news-author badge badge-primary"><span class="text-white font-weight-bold">7300</span> truekoins</span>
+                      <span class="news-author badge badge-primary"><span class="text-white font-weight-bold"><?=$auto2["valor"]?></span> truekoins</span>
                     </div>
                   </div>
                 </div>
@@ -105,7 +117,7 @@
               <div class="position-relative">
                   <!--thumbnail img-->
                 <div class="ratio_left-cover-1 image-wrapper">
-                    <a href="#"><img class="img-fluid w-100" src="images/autos/img20.jpg" alt="Image description"></a>
+                    <a href=<?="post_auto.php?id=".$auto3["usuario_id"]?>><img class="img-fluid w-100" src=<?="images/productos/".$auto3["foto1"]?> alt="Image description" style = 'height:400px'></a>
                 </div>
                 <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                   <ul class="social ">
@@ -114,9 +126,9 @@
                     <li><a href="" data-tip="Comenzar trueke"><i class="fa fa-handshake-o"></i></a></li>
                   </ul>
                     <!--title-->
-                  <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 ">Peugeot Partner Furgón</h2></a>
+                  <a href="#"><h2 class="h3 post-title text-white my-1 mb-2 ml-4 "><?=$auto3["titulo"] ?></h2></a>
                   <div class="news-meta ml-5">
-                    <span class="news-author badge badge-primary"><span class="text-white font-weight-bold">7000</span> truekoins</span>
+                    <span class="news-author badge badge-primary"><span class="text-white font-weight-bold"><?=$auto3["valor"]?></span> truekoins</span>
                   </div>
                 </div>
               </div>
@@ -148,14 +160,14 @@
               <div class="position-relative">
                   <!--thumbnail img-->
                 <div class="ratio_right-cover-2 image-wrapper">
-                  <a href="#"><img class="img-fluid" src="images/autos/img60.jpg" alt="Image description">
+                  <a href=<?="post_auto.php?id=".$auto4["usuario_id"]?>><img class="img-fluid" src=<?="images/productos/".$auto4["foto1"]?> alt="Image description" style = 'height:200px'>
                   </a>
                 </div>
                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                     <!--title-->
-                  <a href="#"><h2 class="h5 text-white my-1">Toyota Corolla</h2></a>
+                  <a href=><h2 class="h5 text-white my-1"><?=$auto4["titulo"]?></h2></a>
                   <!-- category -->
-                  <span class="p-1 ml-3 badge badge-primary" href="#">2500 truekoins</span>
+                  <span class="p-1 ml-3 badge badge-primary" href="#"><?=$auto4["valor"]?> truekoins</span>
                 </div>
               </div>
             </div>
@@ -166,14 +178,14 @@
             <div class="card border-0 rounded-0 text-white overflow zoom">
               <div class="position-relative">
                 <div class="ratio_right-cover-2 image-wrapper">
-                  <a href="#"><img class="img-fluid" src="images/autos/img20.jpg" alt="Image description">
+                  <a href=<?="post_auto.php?id=".$auto5["usuario_id"]?>><img class="img-fluid" src=<?="images/productos/".$auto5["foto1"]?> alt="Image description" style = 'height:200px'>
                   </a>
                 </div>
                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                     <!--title-->
-                  <a href="#"><h2 class="h5 text-white my-1">Peugeot Partner</h2></a>
+                  <a href="#"><h2 class="h5 text-white my-1"><?=$auto5["titulo"]?></h2></a>
                   <!-- category -->
-                  <span class="p-1 ml-3 badge badge-primary" href="#">2700 truekoins</span>
+                  <span class="p-1 ml-3 badge badge-primary" href="#"><?=$auto5["valor"]?> truekoins</span>
                 </div>
               </div>
             </div>
@@ -185,14 +197,14 @@
               <div class="position-relative">
                   <!--thumbnail img-->
                   <div class="ratio_right-cover-2 image-wrapper">
-                    <a href="#"><img class="img-fluid" src="images/autos/img70.jpg" alt="Image description">
+                    <a href=<?="post_auto.php?id=".$auto6["usuario_id"]?>><img class="img-fluid" src=<?="images/productos/".$auto6["foto1"]?> alt="Image description" style = 'height:200px'>
                     </a>
                   </div>
                   <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                       <!--title-->
-                    <a href="#"><h2 class="h5 text-white my-1"> Honda HR-V </h2></a>
+                    <a href="#"><h2 class="h5 text-white my-1"> <?=$auto6["titulo"]?> </h2></a>
                     <!-- category -->
-                    <span class="p-1 ml-3 badge badge-primary" href="#">3600 truekoins</span>
+                    <span class="p-1 ml-3 badge badge-primary" href="#"><?=$auto6["valor"]?> truekoins</span>
                   </div>
               </div>
             </div>
@@ -204,14 +216,14 @@
               <div class="position-relative">
                   <!--thumbnail img-->
                   <div class="ratio_right-cover-2 image-wrapper">
-                    <a href="#"><img class="img-fluid" src="images/autos/img80.jpg" alt="Image description">
+                    <a href=<?="post_auto.php?id=".$auto7["usuario_id"]?>><img class="img-fluid" src=<?="images/productos/".$auto7["foto1"]?> alt="Image description" style = 'height:200px'>
                     </a>
                   </div>
                   <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                       <!--title-->
-                    <a href="#"><h2 class="h5 text-white my-1">Toyota Corolla</h2></a>
+                    <a href="#"><h2 class="h5 text-white my-1"><?=$auto7["titulo"]?></h2></a>
                     <!-- category -->
-                    <span class="p-1 ml-3 badge badge-primary" href="#">2800 truekoins</span>
+                    <span class="p-1 ml-3 badge badge-primary" href="#"><?=$auto7["valor"]?> truekoins</span>
                   </div>
               </div>
             </div>

@@ -7,13 +7,16 @@ class RegistrarProductos {
 //validacion de errores
     if ($datos) :
       if (strlen($datos["titulo"])==0) {
-        $errores[0] = "El campo 'titulo' se encuentra vacio";
-      }
-      if (strlen($datos["descripcion"])==0) {
-        $errores[1] = "El campo 'descripcion' se encuentra vacio";
+        $errores[0] = "debe ingresar un titulo";
       }
       if (strlen($datos["valor"])==0) {
-        $errores[2] = "El campo 'valor' se encuentra vacio";
+        $errores[1] = "debe asignarle una valor en truekoins";
+      }
+      if (strlen($datos["categoria"])==0) {
+        $errores[2] = "debe elegir una categoria";
+      }
+      if (strlen($datos["descripcion"])==0) {
+        $errores[3] = "debe escribir una breve descripcion";
       }
     endif;
 //retorna el array de errores

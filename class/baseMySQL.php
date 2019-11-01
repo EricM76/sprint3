@@ -48,6 +48,22 @@ class BaseMySQL extends BaseDatos{
       return $registros;
     }
 
+    static public function verProductos($pdo,$categoria){
+      $sql = "SELECT * FROM productos WHERE categoria_id = $categoria";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $registros;
+    }
+
+    static public function verProducto($pdo,$usuario_id){
+      $sql = "SELECT * FROM productos WHERE usuario_id = $usuario_id";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $producto = $query->fetch(PDO::FETCH_ASSOC);
+      return $producto;
+    }
+
     static public function verUsuario($pdo,$id){
       $sql = "SELECT * FROM usuarios WHERE id LIKE '$id'";
       $query = $pdo->prepare($sql);
@@ -58,6 +74,15 @@ class BaseMySQL extends BaseDatos{
 
     static public function contarUsuarios($pdo){
       $sql = "SELECT count(*) AS count FROM usuarios";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $contador = $query->fetch(PDO::FETCH_ASSOC);
+      $count = $contador["count"];
+      return $count;
+    }
+
+    static public function contarRegistros($pdo,$tabla,$campo,$condicion){
+      $sql = "SELECT count(*) AS count FROM $tabla WHERE $campo LIKE $condicion";
       $query = $pdo->prepare($sql);
       $query->execute();
       $contador = $query->fetch(PDO::FETCH_ASSOC);

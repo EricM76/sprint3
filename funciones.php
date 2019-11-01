@@ -5,6 +5,17 @@ function persistir($input){
     return $_POST[$input];
   }
 }
+// funcion de persistencia de datos: devuelve si se han cargado datos en $_POST
+function persistirCat($input,$pdo){
+  if(isset($_POST[$input])){
+    $categorias = BaseMySQL::verCategorias($pdo);
+    foreach ($categorias as $categoria){
+      if ($categoria['id']==$_POST[$input]) {
+        return $categoria['nombre'];
+      }
+    }
+  }
+}
 // funcion de analisis de errores: devuelve si existe el error en una posición deterninada en la variable $errores[]
 function errores($input){
   global $errores;
