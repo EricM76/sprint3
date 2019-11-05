@@ -38,7 +38,7 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
         <div class="row collapse navbar-collapse" id="navbarSupportedContent">
           <!-- barra de menu y busqueda -->
           <div class="col-xs-12 col-sm-6 col-md-9 col-lg- col-xl-5">
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" action="home.php">
               <input class="form-control-sm mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" size="35">
               <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Buscar</button>
             </form>
@@ -57,14 +57,14 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                 <!-- menu desplegable -->
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="autos.php">Autos</a>
-                  <a class="dropdown-item" href="inmueble.php">Inmuebles</a>
-                  <a class="dropdown-item" href="hogarnav.php">Hogar</a>
-                  <a class="dropdown-item" href="herramientas.php">Herramientas</a>
-                  <a class="dropdown-item" href="libros.php">Libros</a>
-                  <a class="dropdown-item" href="juguetes.php">Juguetes</a>
-                  <a class="dropdown-item" href="rodados.php">Rodados</a>
-                  <a class="dropdown-item" href="celulares.php">Celulares</a>
+                  <a class="dropdown-item" href="productos.php?cat=1">Autos</a>
+                  <a class="dropdown-item" href="productos.php?cat=2">Inmuebles</a>
+                  <a class="dropdown-item" href="productos.php?cat=3">Hogar</a>
+                  <a class="dropdown-item" href="productos.php?cat=4">Herramientas</a>
+                  <a class="dropdown-item" href="productos.php?cat=5">Libros</a>
+                  <a class="dropdown-item" href="productos.php?cat=6">Juguetes</a>
+                  <a class="dropdown-item" href="productos.php?cat=7">Rodados</a>
+                  <a class="dropdown-item" href="productos.php?cat=8">Celulares</a>
                   <!-- <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Alimentos</a>
                   <a class="dropdown-item" href="#">Oficios</a> -->

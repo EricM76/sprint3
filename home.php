@@ -1,4 +1,9 @@
-
+<?php
+include_once('autoload.php');
+$autos = BaseMySQL::verProductos($pdo,1);
+$auto = $autos[5];
+// vardump($auto['id']);
+ ?>
 
 
 
@@ -66,13 +71,13 @@
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_auto.php">
-                              <img class="pic-1" src="images/auto1/img1.webp">
+                          <a href=<?="post_auto.php?id=".$auto["id"]?>>
+                              <img class="pic-1" src=<?="images/productos/".$auto["foto1"]?>>
                           </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_auto.php">Fiat Palio 1.6 Essence </a></h3>
-                          <div class="price">2200 truekoins
+                          <h3 class="title"><a href=<?="post_auto.php?id=".$auto["id"]?>><?=$auto['titulo']?> </a></h3>
+                          <div class="price"><?=$auto['valor']?> truekoins
                           </div>
                       </div>
                       <ul class="social">

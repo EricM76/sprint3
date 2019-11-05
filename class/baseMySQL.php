@@ -56,8 +56,16 @@ class BaseMySQL extends BaseDatos{
       return $registros;
     }
 
-    static public function verProducto($pdo,$usuario_id){
-      $sql = "SELECT * FROM productos WHERE usuario_id = $usuario_id";
+    static public function filtrarProductos($pdo,$categoria){
+      $sql = "SELECT * FROM productos WHERE categoria_id = $categoria";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $registros = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $registros;
+    }
+
+    static public function verProducto($pdo,$usuario_id,$cat){
+      $sql = "SELECT * FROM productos WHERE usuario_id = $usuario_id AND categoria_id = $cat";
       $query = $pdo->prepare($sql);
       $query->execute();
       $producto = $query->fetch(PDO::FETCH_ASSOC);
