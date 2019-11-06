@@ -56,16 +56,8 @@ class BaseMySQL extends BaseDatos{
       return $registros;
     }
 
-    static public function filtrarProductos($pdo,$categoria){
-      $sql = "SELECT * FROM productos WHERE categoria_id = $categoria";
-      $query = $pdo->prepare($sql);
-      $query->execute();
-      $registros = $query->fetchAll(PDO::FETCH_ASSOC);
-      return $registros;
-    }
-
-    static public function verProducto($pdo,$usuario_id,$cat){
-      $sql = "SELECT * FROM productos WHERE usuario_id = $usuario_id AND categoria_id = $cat";
+    static public function verProducto($pdo,$id,$cat){
+      $sql = "SELECT * FROM productos WHERE id = $id AND categoria_id = $cat";
       $query = $pdo->prepare($sql);
       $query->execute();
       $producto = $query->fetch(PDO::FETCH_ASSOC);
@@ -124,7 +116,6 @@ class BaseMySQL extends BaseDatos{
       unlink("images/perfil/".$perfil["perfil"]);
     }
 
-
     static public function busqueda($pdo,$busca){
         $sql = "select * from productos where titulo like '%$busca%'";
         $query = $pdo->prepare($sql);
@@ -132,6 +123,8 @@ class BaseMySQL extends BaseDatos{
         $registro = $query->fetch(PDO::FETCH_ASSOC);
         return $registro;
     }
+
+
 
 
 
