@@ -1,7 +1,21 @@
 <?php
 include_once('autoload.php');
 $autos = BaseMySQL::verProductos($pdo,1);
-$auto = $autos[5];
+$auto = $autos[0];
+$inmuebles = BaseMySQL::verProductos($pdo,2);
+$inmueble = $inmuebles[1];
+$hogars = BaseMySQL::verProductos($pdo,3);
+$hogar = $hogars[2];
+$herramientas = BaseMySQL::verProductos($pdo,4);
+$herramienta = $herramientas[3];
+$libros = BaseMySQL::verProductos($pdo,5);
+$libro = $libros[4];
+$juguetes = BaseMySQL::verProductos($pdo,6);
+$juguete = $juguetes[5];
+$rodados = BaseMySQL::verProductos($pdo,7);
+$rodado = $rodados[6];
+$celulars = BaseMySQL::verProductos($pdo,8);
+$celular = $celulars[7];
 // vardump($auto['id']);
  ?>
 
@@ -71,12 +85,12 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href=<?="post_auto.php?id=".$auto["id"]?>>
+                          <a href=<?="producto.php?id=".$auto["id"]."&cat=1"?>>
                               <img class="pic-1" src=<?="images/productos/".$auto["foto1"]?>>
                           </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href=<?="post_auto.php?id=".$auto["id"]?>><?=$auto['titulo']?> </a></h3>
+                          <h3 class="title"><a href=<?="producto.php?id=".$auto["id"]."&cat=1"?>><?=$auto['titulo']?> </a></h3>
                           <div class="price"><?=$auto['valor']?> truekoins
                           </div>
                       </div>
@@ -89,15 +103,15 @@ $auto = $autos[5];
               </div>
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
-                      <div class="product-image6">
-                          <a href="post_inmueble.php">
-                              <img class="pic-1" src="images/casa1/img1.webp">
-                          </a>
-                      </div>
+                    <div class="product-image6">
+                        <a href=<?="producto.php?id=".$inmueble["id"]."&cat=2"?>>
+                              <img class="pic-1" src=<?="images/productos/".$inmueble["foto1"]?>>
+                        </a>
+                    </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_inmueble.php">Casa en Pilar</a></h3>
-                          <div class="price">117.000 truekoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$inmueble["id"]."&cat=2"?>><?=$inmueble['titulo']?> </a></h3>
+                        <div class="price"><?=$inmueble['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -109,14 +123,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_celular.php">
-                              <img class="pic-1" src="images/celulares/img1.webp">
-                          </a>
+                        <a href=<?="producto.php?id=".$hogar["id"]."&cat=3"?>>
+                              <img class="pic-1" src=<?="images/productos/".$hogar["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_celular.php">Iphone 8 Plus 64 Gb</a></h3>
-                          <div class="price">470 truekoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$hogar["id"]."&cat=3"?>><?=$hogar['titulo']?> </a></h3>
+                        <div class="price"><?=$hogar['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -128,14 +142,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_herramienta.php">
-                              <img class="pic-1" src="images/herramientas/img1.webp">
-                          </a>
+                        <a href=<?="producto.php?id=".$herramienta["id"]."&cat=4"?>>
+                              <img class="pic-1" src=<?="images/productos/".$herramienta["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_herramienta.php">Juego De Tubos Bahco</a></h3>
-                          <div class="price">56 truekcoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$herramienta["id"]."&cat=4"?>><?=$herramienta['titulo']?> </a></h3>
+                        <div class="price"><?=$herramienta['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -147,14 +161,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_balanza.php">
-                              <img class="pic-1" src="images/hogar/img1.jpeg">
-                          </a>
+                        <a href=<?="producto.php?id=".$libro["id"]."&cat=5"?>>
+                              <img class="pic-1" src=<?="images/productos/".$libro["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_balanza.php">Balanza Digital</a></h3>
-                          <div class="price">2 truekcoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$libro["id"]."&cat=5"?>><?=$libro['titulo']?> </a></h3>
+                        <div class="price"><?=$libro['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -166,14 +180,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_mesa.php">
-                              <img class="pic-1" src="images/juguetes/img1.webp">
-                          </a>
+                        <a href=<?="producto.php?id=".$juguete["id"]."&cat=6"?>>
+                              <img class="pic-1" src=<?="images/productos/".$juguete["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_mesa.php">Mesa Didáctica</a></h3>
-                          <div class="price">20 truekcoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$juguete["id"]."&cat=6"?>><?=$juguete['titulo']?> </a></h3>
+                        <div class="price"><?=$juguete['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -185,14 +199,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_libro.php">
-                              <img class="pic-1" src="images/libro1/img1.webp">
-                          </a>
+                        <a href=<?="producto.php?id=".$rodado["id"]."&cat=7"?>>
+                              <img class="pic-1" src=<?="images/productos/".$rodado["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_libro.php">Colección Stamateas</a></h3>
-                          <div class="price">24 truekcoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$rodado["id"]."&cat=7"?>><?=$rodado['titulo']?> </a></h3>
+                        <div class="price"><?=$rodado['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>
@@ -204,14 +218,14 @@ $auto = $autos[5];
               <div class="col-md-3 col-sm-6">
                   <div class="product-grid6">
                       <div class="product-image6">
-                          <a href="post_bici.php">
-                              <img class="pic-1" src="images/rodado1/img1.webp">
-                          </a>
+                        <a href=<?="producto.php?id=".$celular["id"]."&cat=8"?>>
+                              <img class="pic-1" src=<?="images/productos/".$celular["foto1"]?>>
+                        </a>
                       </div>
                       <div class="product-content">
-                          <h3 class="title"><a href="post_bici.php">Mountain Bike Firebird</a></h3>
-                          <div class="price">152 truekcoins
-                          </div>
+                        <h3 class="title"><a href=<?="producto.php?id=".$celular["id"]."&cat=7"?>><?=$celular['titulo']?> </a></h3>
+                        <div class="price"><?=$celular['valor']?> truekoins
+                        </div>
                       </div>
                       <ul class="social">
                           <li><a href="" data-tip="Más información"><i class="fa fa-search"></i></a></li>

@@ -72,6 +72,21 @@ class BaseMySQL extends BaseDatos{
       return $producto;
     }
 
+    static public function lastProducto($pdo,$cat){
+      $sql = "SELECT MAX(id) AS last FROM productos WHERE categoria_id = $cat";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $max = $query->fetch(PDO::FETCH_ASSOC);
+      $last = $max["last"];
+      return $last;
+    }
+
+    static public function firstProducto($pdo,$cat){
+      $sql = "SELECT MIN(id) AS first FROM productos WHERE categoria_id = $cat";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $min = $query->fetch(PDO:
+      
     static public function verUsuario($pdo,$id){
       $sql = "SELECT * FROM usuarios WHERE id LIKE '$id'";
       $query = $pdo->prepare($sql);

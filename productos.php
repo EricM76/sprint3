@@ -50,7 +50,7 @@ if ($_GET) {
                 <div class="position-relative">
                     <!--thumbnail img-->
                   <div class="ratio_left-cover-1 image-wrapper">
-                      <a href=<?="producto.php?id=".$producto0["usuario_id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto0["foto1"]?> alt="Image description" style = 'height:400px'></a>
+                      <a href=<?="producto.php?id=".$producto0["id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto0["foto1"]?> alt="Image description" style = 'height:400px'></a>
                   </div>
                   <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                     <ul class="social">
@@ -74,7 +74,7 @@ if ($_GET) {
                   <div class="position-relative">
                       <!--thumbnail img-->
                     <div class="ratio_left-cover-1 image-wrapper">
-                        <a href=<?="producto.php?id=".$producto1["usuario_id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto1["foto1"]?> alt="Image description" style = 'height:400px'></a>
+                        <a href=<?="producto.php?id=".$producto1["id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto1["foto1"]?> alt="Image description" style = 'height:400px'></a>
                     </div>
                     <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                       <ul class="social ">
@@ -98,7 +98,7 @@ if ($_GET) {
                 <div class="position-relative">
                     <!--thumbnail img-->
                   <div class="ratio_left-cover-1 image-wrapper">
-                      <a href=<?="producto.php?id=".$producto2["usuario_id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto2["foto1"]?> alt="Image description" style = 'height:400px'></a>
+                      <a href=<?="producto.php?id=".$producto2["id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto2["foto1"]?> alt="Image description" style = 'height:400px'></a>
                   </div>
                   <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                     <ul class="social ">
@@ -122,7 +122,7 @@ if ($_GET) {
               <div class="position-relative">
                   <!--thumbnail img-->
                 <div class="ratio_left-cover-1 image-wrapper">
-                    <a href=<?="producto.php?id=".$producto3["usuario_id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto3["foto1"]?> alt="Image description" style = 'height:400px'></a>
+                    <a href=<?="producto.php?id=".$producto3["id"]."&cat=".$cat?>><img class="img-fluid w-100" src=<?="images/productos/".$producto3["foto1"]?> alt="Image description" style = 'height:400px'></a>
                 </div>
                 <div class="position-absolute p-1 p-lg-3 b-0 w-100 bg-shadow">
                   <ul class="social ">
@@ -165,7 +165,7 @@ if ($_GET) {
               <div class="position-relative">
                   <!--thumbnail img-->
                 <div class="ratio_right-cover-2 image-wrapper">
-                  <a href=<?="producto.php?id=".$producto4["usuario_id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto4["foto1"]?> alt="Image description" style = 'height:200px'>
+                  <a href=<?="producto.php?id=".$producto4["id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto4["foto1"]?> alt="Image description" style = 'height:200px'>
                   </a>
                 </div>
                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
@@ -183,7 +183,7 @@ if ($_GET) {
             <div class="card border-0 rounded-0 text-white overflow zoom">
               <div class="position-relative">
                 <div class="ratio_right-cover-2 image-wrapper">
-                  <a href=<?="producto.php?id=".$producto5["usuario_id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto5["foto1"]?> alt="Image description" style = 'height:200px'>
+                  <a href=<?="producto.php?id=".$producto5["id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto5["foto1"]?> alt="Image description" style = 'height:200px'>
                   </a>
                 </div>
                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
@@ -202,7 +202,7 @@ if ($_GET) {
               <div class="position-relative">
                   <!--thumbnail img-->
                   <div class="ratio_right-cover-2 image-wrapper">
-                    <a href=<?="producto.php?id=".$producto6["usuario_id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto6["foto1"]?> alt="Image description" style = 'height:200px'>
+                    <a href=<?="producto.php?id=".$producto6["id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto6["foto1"]?> alt="Image description" style = 'height:200px'>
                     </a>
                   </div>
                   <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
@@ -221,7 +221,7 @@ if ($_GET) {
               <div class="position-relative">
                   <!--thumbnail img-->
                   <div class="ratio_right-cover-2 image-wrapper">
-                    <a href=<?="producto.php?id=".$producto7["usuario_id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto7["foto1"]?> alt="Image description" style = 'height:200px'>
+                    <a href=<?="producto.php?id=".$producto7["id"]."&cat=".$cat?>><img class="img-fluid" src=<?="images/productos/".$producto7["foto1"]?> alt="Image description" style = 'height:200px'>
                     </a>
                   </div>
                   <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">

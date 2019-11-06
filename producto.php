@@ -29,13 +29,13 @@ $productos = BaseMySQL::verProductos($pdo,$cat);
     <?php include_once("header.php") ?>
 <div class="row">
 
-  <!-- <div class="col-1 d-flex align-items-center justify-content-center">
+  <div class="col-1 d-flex align-items-center justify-content-center">
     <?php if ($producto["id"]>$productos[0]["id"]){?>
         <a href="producto.php?id=<?=$producto["id"]-1?>"><img class="img-fluid" src="images/back.png" alt="izq"></a>
       <?php }else {?>
         <a href="producto.php?id=<?=$producto["id"]?>"><img class="img-fluid" src="images/back.png" alt="izq"></a>
      <?php } ?>
-  </div> -->
+  </div>
     <!-- posteo -->
 	<div class="container col-10">
 		<div class="card mt-1 pt-4">
@@ -85,18 +85,18 @@ $productos = BaseMySQL::verProductos($pdo,$cat);
 			</div>
 		</div>
 	</div>
-  <!-- <div class="col-1 d-flex align-items-center justify-content-center">
+  <div class="col-1 d-flex align-items-center justify-content-center">
     <?php
-       //genera una consulta que devuelve la cantidad de usuarios registrados
-       $count = BaseMySQL::contarRegistros($pdo,'productos','categoria_id',$cat);
 
-       if ($producto["id"]<$count){
-        ?>
+       $last = BaseMySQL::lastProducto($pdo,$cat);
+       $first = BaseMySQL::firstProducto($pdo,$cat);
+
+       if ($producto["id"]<$last){?>
          <a href="producto.php?id=<?=$producto["id"]+1 ?>"><img class="img-fluid" src="images/next.png" alt=""> </a>
        <?php }else{ ?>
          <a href="producto.php?id=<?=$producto["id"]?>"><img class="img-fluid" src="images/next.png" alt=""> </a>
        <?php } ?>
-  </div> -->
+  </div>
 
   </div>
 
