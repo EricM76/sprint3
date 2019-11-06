@@ -107,8 +107,13 @@ class BaseMySQL extends BaseDatos{
     }
 
 
-
-
+    static public function busqueda($pdo,$busca){
+        $sql = "select * from productos where titulo like '%$busca%'";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $registro = $query->fetch(PDO::FETCH_ASSOC);
+        return $registro;
+    }
 
 
 

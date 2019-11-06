@@ -3,6 +3,11 @@ include_once('autoload.php');
 if ($_SESSION["userEmail"] == null) {
   header("location:error.php");
 }
+if ($_POST) {
+ $busca = $_POST['busca'];
+ $resultado = BaseMySQL::busqueda($pdo,$busca);
+ vardump($resultado);
+}
 
 $userEmail=$_SESSION["userEmail"];
 $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
@@ -38,8 +43,8 @@ $usuario=BaseMySQL::buscarPorEmail($_SESSION["userEmail"],$pdo,'usuarios');
         <div class="row collapse navbar-collapse" id="navbarSupportedContent">
           <!-- barra de menu y busqueda -->
           <div class="col-xs-12 col-sm-6 col-md-9 col-lg- col-xl-5">
-            <form class="form-inline my-2 my-lg-0" action="home.php">
-              <input class="form-control-sm mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" size="35">
+            <form class="form-inline my-2 my-lg-0" action="home.php" method="post">
+              <input class="form-control-sm mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" size="35" name="busca">
               <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Buscar</button>
             </form>
             <ul class="navbar-nav mr-auto">
