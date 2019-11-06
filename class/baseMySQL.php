@@ -85,8 +85,11 @@ class BaseMySQL extends BaseDatos{
       $sql = "SELECT MIN(id) AS first FROM productos WHERE categoria_id = $cat";
       $query = $pdo->prepare($sql);
       $query->execute();
-      $min = $query->fetch(PDO:
-      
+      $min = $query->fetch(PDO::FETCH_ASSOC);
+      $first = $min["first"];
+      return $first;
+    }
+
     static public function verUsuario($pdo,$id){
       $sql = "SELECT * FROM usuarios WHERE id LIKE '$id'";
       $query = $pdo->prepare($sql);
