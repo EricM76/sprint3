@@ -124,8 +124,22 @@ class BaseMySQL extends BaseDatos{
         return $registro;
     }
 
+    static public function verFilas($pdo,$cat){
+      $sql = "SELECT RANK() OVER (ORDER BY id) FILA, id, titulo, descripcion, valor, val_product, foto1, foto2, foto3 FROM productos where categoria_id like $cat";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $filas = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $filas;
+    }
 
+    static public function lastRegistro($pdo,$cat){
+      $sql = "SELECT RANK() OVER (ORDER BY id) FILA FROM productos where categoria_id like $cat order by FILA DESC LIMIT 1;";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $last = $query->fetch(PDO::FETCH_ASSOC);
+      return $last;
 
+    }
 
 
 

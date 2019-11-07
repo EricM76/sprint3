@@ -1,14 +1,20 @@
 <?php
 include_once("autoload.php");
-// if ($_GET) {
-  $id = $_GET["id"];
-  $cat = $_SESSION["cat"];
-  // var_dump($_SESSION['cat']);
-// }
 
-$producto = BaseMySQL::verProducto($pdo,$id,$cat);
+  $id = $_GET["id"];
+  $cat = $_GET["cat"];
+  // var_dump($_SESSION['cat']);
+
+$filas = BaseMySQL::verFilas($pdo,$cat);
+$lastRegistro = BaseMySQL::lastRegistro($pdo,$cat);
 $productos = BaseMySQL::verProductos($pdo,$cat);
-// vardump($productos);
+
+foreach ($filas as $fila) :
+  if ($fila["id"] == $id) :
+    $producto = $fila;
+    // vardump($producto);
+  endif;
+endforeach;
 
 ?>
 
@@ -30,12 +36,17 @@ $productos = BaseMySQL::verProductos($pdo,$cat);
 <div class="row">
 
   <div class="col-1 d-flex align-items-center justify-content-center">
-    <?php if ($producto["id"]>$productos[0]["id"]){?>
-        <a href="producto.php?id=<?=$producto["id"]-1?>"><img class="img-fluid" src="images/back.png" alt="izq"></a>
-      <?php }else {?>
-        <a href="producto.php?id=<?=$producto["id"]?>"><img class="img-fluid" src="images/back.png" alt="izq"></a>
-     <?php } ?>
+    <?php if ($producto["FILA"]>1):
+      $before = $producto["FILA"]-1;
+      foreach ($filas as $fila) :
+        if ($fila["FILA"] == $before) :
+          $back = $fila;
+        endif;
+      endforeach;?>
+    <a href="producto.php?id=<?=$back["id"]."&cat=".$cat?>"><img class="img-fluid" src="images/back.png" alt="izq"></a>
+    <?php endif; ?>
   </div>
+
     <!-- posteo -->
 	<div class="container col-10">
 		<div class="card mt-1 pt-4">
@@ -85,17 +96,20 @@ $productos = BaseMySQL::verProductos($pdo,$cat);
 			</div>
 		</div>
 	</div>
+
+
   <div class="col-1 d-flex align-items-center justify-content-center">
-    <?php
 
-       $last = BaseMySQL::lastProducto($pdo,$cat);
-       $first = BaseMySQL::firstProducto($pdo,$cat);
+    <?php if ($producto["FILA"] < $lastRegistro["FILA"]):
+      $after = $producto["FILA"]+1;
+      foreach ($filas as $fila) :
+        if ($fila["FILA"] == $after) :
+          $next = $fila;
+        endif;
+      endforeach;?>
+    <a href="producto.php?id=<?=$next["id"]."&cat=".$cat?>"><img class="img-fluid" src="images/next.png" alt="izq"></a>
+    <?php endif; ?>
 
-       if ($producto["id"]<$last){?>
-         <a href="producto.php?id=<?=$producto["id"]+1 ?>"><img class="img-fluid" src="images/next.png" alt=""> </a>
-       <?php }else{ ?>
-         <a href="producto.php?id=<?=$producto["id"]?>"><img class="img-fluid" src="images/next.png" alt=""> </a>
-       <?php } ?>
   </div>
 
   </div>

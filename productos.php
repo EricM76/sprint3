@@ -1,9 +1,10 @@
 <?php
 include_once('autoload.php');
 if ($_GET) {
-  $_SESSION["cat"] = $_GET['cat'];
+  // $_SESSION["cat"] = $_GET['cat'];
   $cat = $_GET['cat'];
-  $productos = BaseMySQL::verProductos($pdo,$cat);
+  // $productos = BaseMySQL::verProductos($pdo,$cat);
+  $productos = BaseMySQL::verFilas($pdo,$cat);
   $producto0 = $productos[0];
   $producto1 = $productos[1];
   $producto2 = $productos[2];

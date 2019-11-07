@@ -19,7 +19,7 @@ if ($_POST) {
         //genera una instancia de productos enviando los datos y las imagenes
         $producto = RegistrarProductos::crearProducto($_POST,$foto1,$foto2,$foto3);
         RegistrarProductos::guardarProducto($pdo, $producto);
-        header('location:perfil.php');
+        header('location:home.php');
       }
     }
 }

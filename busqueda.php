@@ -1,7 +1,9 @@
 <?php
 include_once('autoload.php');
 
+
  $busca = $_GET['resultado'];
+ if ($busca == null ) {header("location:home.php");}
  // vardump($busca);
 
  // $producto = BaseMySQL::buscarRegistro($pdo,'productos','titulo',$busca);
@@ -36,8 +38,6 @@ include_once('autoload.php');
               <th scope="col">titulo</th>
               <th scope="col">descripcion</th>
               <th scope="col">valor</th>
-              <th scope="col">fecha</th>
-              <th scope="col">valoracion</th>
             </tr>
           </thead>
           <tbody>
@@ -47,8 +47,6 @@ include_once('autoload.php');
             <td><?=$producto["titulo"]?></td>
             <td><?=$producto["descripcion"]?></td>
             <td><?=$producto["valor"]?></td>
-            <td><?=$producto["fecha_posteo"]?></td>
-            <td><?=$producto["val_product"]?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
