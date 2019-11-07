@@ -5,8 +5,7 @@ if ($_SESSION["userEmail"] == null) {
 }
 if ($_POST) {
  $busca = $_POST['busca'];
- $resultado = BaseMySQL::busqueda($pdo,$busca);
- vardump($resultado);
+ header("location:busqueda.php?resultado=". $busca);
 }
 
 $userEmail=$_SESSION["userEmail"];

@@ -120,7 +120,7 @@ class BaseMySQL extends BaseDatos{
         $sql = "select * from productos where titulo like '%$busca%'";
         $query = $pdo->prepare($sql);
         $query->execute();
-        $registro = $query->fetch(PDO::FETCH_ASSOC);
+        $registro = $query->fetchAll(PDO::FETCH_ASSOC);
         return $registro;
     }
 
