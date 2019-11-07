@@ -4,12 +4,9 @@ include_once('autoload.php');
 
  $busca = $_GET['resultado'];
  if ($busca == null ) {header("location:home.php");}
- // vardump($busca);
 
- // $producto = BaseMySQL::buscarRegistro($pdo,'productos','titulo',$busca);
- // vardump($producto);
  $resultado = BaseMySQL::busqueda($pdo,$busca);
- // vardump($resultado);
+
 
  ?>
 
@@ -26,7 +23,7 @@ include_once('autoload.php');
 
     <!-- posteos de ejemplo -->
     <section class="mt-3">
-      <!-- <iframe src="promo-ejemplo.html" width="100%" height="600px"></iframe> -->
+
       <div class="container-fluid mt-3">
          <?php
          $busqueda=BaseMySQL::busqueda($pdo,$busca);
@@ -41,9 +38,8 @@ include_once('autoload.php');
             </tr>
           </thead>
           <tbody>
-          <?php foreach ($busqueda as $producto): ?>
-          <tr href=<?="producto.php?id=".$producto["id"]."&cat=1"?>>
-            <td> <img class="pic-1" src=<?="images/productos/".$producto["foto1"]?>  width="150px"></td>
+          <?php foreach ($busqueda as $producto):?>
+            <td> <a href="producto.php?id=<?=$producto['id']?>&cat=<?=$producto['categoria_id'] ?>"><img class="pic-1" src=<?="images/productos/".$producto["foto1"]?>  width="150px"></a></td>
             <td><?=$producto["titulo"]?></td>
             <td><?=$producto["descripcion"]?></td>
             <td><?=$producto["valor"]?></td>
@@ -52,7 +48,7 @@ include_once('autoload.php');
         </tbody>
        </table>
        </div>
-
+<!-- <?php "productos.php?id=".$producto["id"]."&cat=".$producto["categoria_id"] ?> -->
     </section>
     <!-- pie de página -->
     <footer>
