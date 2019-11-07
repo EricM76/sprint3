@@ -141,7 +141,13 @@ class BaseMySQL extends BaseDatos{
 
     }
 
-
+    static public function selectProduc($pdo){
+      $sql = "SELECT * FROM productos ORDER BY rand() LIMIT 20";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $productos = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $productos;
+    }
 
 
 
