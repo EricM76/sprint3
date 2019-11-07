@@ -6,8 +6,6 @@ if ($_SESSION["userEmail"] == null) {
 if (isset($_GET["busca"])) {
 
  $busca = $_GET['busca'];
- 
- if ($busca == null ) {header("location:home.php");}
 
  header("location:busqueda.php?resultado=". $busca);
 }
