@@ -10,6 +10,7 @@ class BaseMySQL extends BaseDatos{
             return $baseDatos;
         } catch (PDOException $errores) {
             echo "No me pude conectar a la BD ". $errores->getmessage();
+            header('location:mantenimiento.php');
             exit;
         }
     }
@@ -21,6 +22,15 @@ class BaseMySQL extends BaseDatos{
         $query->execute();
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
         return $usuario;
+    }
+
+    static public function buscarPorDNI($dni,$pdo){
+        $sql = "SELECT * FROM admin WHERE usuario = :dni";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':dni',$dni);
+        $query->execute();
+        $admin = $query->fetch(PDO::FETCH_ASSOC);
+        return $admin;
     }
 
     static public function buscarRegistro($pdo,$tabla,$campo,$busqueda){
@@ -147,6 +157,14 @@ class BaseMySQL extends BaseDatos{
       $query->execute();
       $productos = $query->fetchAll(PDO::FETCH_ASSOC);
       return $productos;
+    }
+
+    static public function selectCodigo($pdo){
+      $sql = "SELECT * FROM codigo LIMIT 1";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $codigo = $query->fetch(PDO::FETCH_ASSOC);
+      return $codigo;
     }
 
 

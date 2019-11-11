@@ -16,7 +16,7 @@ if ($_POST):
           //genera un usuario
           $usuario = RegistrarUsuarios::crearUsuario($_POST);
           RegistrarUsuarios::guardarUsuario($pdo, $usuario);
-          
+
           $_SESSION["userEmail"] = $_POST["email"];
           header("location:index.php");
         }
@@ -51,7 +51,7 @@ if ($_POST):
           <img class="img-fluid" src="images\logo.png" alt="logo">
         </div><br>
         <div class="text-center">
-          <a href="" data-toggle="modal" data-target="#questions">Preguntas frecuentes</a>
+          <a href="" data-toggle="modal" data-target="#questions">Preguntas frecuentes</a><br>
         </div>
 
       </section>
@@ -111,8 +111,9 @@ if ($_POST):
 <?php
 include("questions.php");
 ?>
-  <footer class="bg-danger text-center mt-4">
-    <span class="text-white ">Todos los derechos reservados - AEM - Trabajo Integrador para DigitalHouse 2019</span>
+  <footer class="text-center mt-4">
+    <span class="text-dark ">Todos los derechos reservados - AEM - Trabajo Integrador para DigitalHouse 2019 - </span>
+    <a href="adminAccess.php" style="text-decoration:none" class="text-danger">Acceso Administradores</a>
   </footer>
     <script src="js/jquery.js"type="text/javascript"></script>
     <script src="js/bootstrap.js"type="text/javascript"></script>

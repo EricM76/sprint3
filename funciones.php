@@ -52,4 +52,33 @@ function validoEmail($dato,$error){
 function guardaCookie($email,$pass){
   setcookie("userEmail",$email,time()+(3600*24*365));
 }
-  ?>
+
+function guardarUsuario($usuario){
+  $json = json_encode($usuario);
+  file_put_contents("usuarios.json",$json.PHP_EOL, FILE_APPEND);
+}
+function backup($tabla,$pdo){
+  $usuarios = BaseMySQL::verRegistros($pdo,$tabla);
+  $json = JSON_ENCODE($usuarios);
+  file_put_contents($tabla.".json",$json.PHP_EOL);
+}
+function fechaBackup($tabla){
+  if (file_exists($tabla.'.json')) {
+      $modificacion = "La última modificación fue el " . date('d/m/Y h:i:s', filectime($tabla.'.json'));
+  }
+  return $modificacion;
+}
+function abrirJson($tabla){
+  $usuarios = file_get_contents($tabla.".json");
+  $usuarios = explode(PHP_EOL,$usuarios);
+  array_pop($usuarios);
+  foreach ($usuarios as $usuario) {
+        $array[]= json_decode($usuario,true);
+    }
+  return $array;
+}
+function generarCodigo($codigo){
+  $codigo = password_hash($codigo,PASSWORD_DEFAULT);
+  
+}
+?>

@@ -6,4 +6,4 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/sweetalert2.css">
-<link rel="stylesheet" href="css/master.css">
+<link rel="stylesheet" href="css/all.css" >

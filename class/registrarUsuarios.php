@@ -24,7 +24,7 @@ public function validarDatosUser($datos){
         $errores[4] ="Eres menor de edad";
       }
       if ($datos["fecha"]== null) {
-        $errores[4]= "Debes indicar una fecha";
+        $errores[4]= "Debes indicar una fecha de nacimiento";
       }
       if (isset($datos["sexo"]) && $datos["sexo"]==null) {
         $_POST["sexo"]="i";

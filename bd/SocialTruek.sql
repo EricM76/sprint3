@@ -18,6 +18,35 @@ USE `socialtruek`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `usuario` varchar(45) DEFAULT NULL,
+  `pass` varchar(252) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'Eric','Mena','menaericdaniel@gmail.com','92856678','$2y$10$sv8OSgFJWNUvf0YPC9VJROALXbeFeBgb7XFa94aPTU9nq/GHjUxAu');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categorias`
 --
 
@@ -39,6 +68,29 @@ LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` VALUES (1,'autos'),(2,'inmuebles'),(3,'hogar'),(4,'herramientas'),(5,'libros'),(6,'juguetes'),(7,'rodados'),(8,'celulares'),(9,'otros');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `codigo`
+--
+
+DROP TABLE IF EXISTS `codigo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `codigo` (
+  `codigo` varchar(256) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `codigo`
+--
+
+LOCK TABLES `codigo` WRITE;
+/*!40000 ALTER TABLE `codigo` DISABLE KEYS */;
+INSERT INTO `codigo` VALUES ('$2y$10$.j3TIDHwrzo8np4lOOa3j.csKio9Yx8NygYjiA8UVY/C/i425tw1S');
+/*!40000 ALTER TABLE `codigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -131,7 +183,7 @@ CREATE TABLE `usuarios` (
   `celular` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +192,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Eric','Mena','menaericdaniel@gmail.com','$2y$10$VRKeOkfsuinefaFkA2t7..cW8SDDN3wXO8Ak4MR3t66ilFu2.Ssmm','1976-03-03','h','perfilHombre.png ','5dbab0e8251ee.jpg',NULL,'General Pico #10631, barrio El Libertador, Loma Hermosa, Buenos Aires',1147394347,1134016800),(2,'Alexis','Veiga','veigalexis16@gmail.com','$2y$10$3gtsuupd4fz1DCXayxRPS.mEtGKiwdytD8cUq1TNAkPiUzDjhRUfO','1994-04-28','h','avatar01.png ','5db84bd775d88.jpg',NULL,NULL,NULL,NULL),(3,'Marcos','Palladini','marcospalladini3@gmail.com','$2y$10$Kk9ydNTYHoDj4FhclFKSuOEgIyzJl84wy.PML2ELouCaZm5mnmTzi','1988-03-14','h','avatar19.png ','5db21e80871cb.jpg',NULL,NULL,NULL,NULL),(4,'Brenda','Ruiz','brendaruiz@gmail.com','$2y$10$.PWAolL1hKNF/jerOkan..m5zqc9UfI1YVuHytZCc2u6.UnzTXD6a','1993-12-21','m','avatar10.png ','5db23d7ac2a3f.jpg',NULL,NULL,NULL,NULL),(5,'Micaela','Padilla','micaela@gmail.com','$2y$10$imD8p62zM6FXlmMU7yuEWeYjE9Vfx7/ndpTTDpB92WCAfxy0z8sLW','1989-10-21','m','perfilMujer.png ','5db244e788819.jpg',NULL,NULL,NULL,NULL),(6,'Sabrina','Molina','sabrina@gmail.com','$2y$10$5JK7XOIwF0vIyIsvxomM/ef1w6iqFdNuUStYjNGVk9Zax8JV88o.i','1959-04-14','m','avatar02.png ','5db84be28e3fc.jpg',NULL,NULL,NULL,NULL),(7,'Osvaldo','Medina','osvaldo@gmail.com','$2y$10$l6jvEKjL2OrhAGQ0iGp9yel8UJ9/TF7KN.oA3fz.bYb9TOdom0J1C','1987-05-23','h','avatar03.png ',NULL,NULL,NULL,NULL,NULL),(8,'Diego','Fuentes','diego@gmail.com','$2y$10$DqQhygDaDUvZovhzsRWpbuISW9tcV5lZZpP/VwsA4MeP4rejkG.dy','1986-12-12','h','avatar13.png ',NULL,NULL,NULL,NULL,NULL),(9,'Mariano','Toledo','mariano@gmail.com','$2y$10$GihWS/gm.Du2/P0TYpLpPu6kOIKcU3MAB.mlRp8SuVTaQ/xwWX8Ly','1990-08-15','h','avatar14.png ',NULL,NULL,NULL,NULL,NULL),(10,'Sandra','Perez','sandra@gmail.com','$2y$10$2Gi3ouFohMkMgv339g4BEuEbmLJbH.2VJiUwuQl1D/XLp9KnmlCBK','1967-05-04','m','avatar15.png ',NULL,NULL,NULL,NULL,NULL),(11,'Gloria','Sanchez','gloria@gmail.com','$2y$10$i9ZIRMwpiDIJaJV7c49.eO5zFo8RjyDAy7xURYN8CINjWVobL8JvS','1983-07-31','m','avatar17.png ',NULL,NULL,NULL,NULL,NULL),(12,'Rosa','Garcia','rosa@gmail.com','$2y$10$WJEYoUEN9hYKKmqUS9JVtOxQAYLJ8w3IpJU7vxD6fZldS9ZlynJ8O','1946-04-13','m','avatar04.png ',NULL,NULL,NULL,NULL,NULL),(13,'Ana','Guzman','ana@gmail.com','$2y$10$84lvinyTlmpweVWgFaiCceeoRL2Yxx7CK6wczY85Yu1ylB2mF9hX6','1968-10-26','m','avatar16.png ',NULL,NULL,NULL,NULL,NULL),(14,'Franco','Devita','franco@gmail.com','$2y$10$eb9rtcFdj39l3GtyFN3vAeBV.CiL2Uyf9UKeKMdfOTGCkfOcbA1HW','1967-12-03','h','avatar22.png ',NULL,NULL,NULL,NULL,NULL),(15,'Santiago','Zambrano','santiago@gmail.com','$2y$10$WbCmjCicOseTe.NCO1Ujlexo0pxgb8l6E/E6buDG3tCBmP4k5W1Tu','1999-03-02','h',NULL,NULL,NULL,NULL,NULL,NULL),(16,'Nicolas','Gonzalez','nicolas@gmail.com','$2y$10$p8.Jzmvd6JytqS.b5meav.EgIyGiadBVuDVGkmpDRx7BhR3cf7TUO','1978-04-26','h',NULL,NULL,NULL,NULL,NULL,NULL),(17,'Julio','Lopez','julio@gmail.com','$2y$10$QYV9Gy8IA0tqsSUSLma2mOdIHqD/nFAz0A2xM/0CZ/L0WdL2cE6DC','1978-08-15','h',NULL,NULL,NULL,NULL,NULL,NULL),(18,'Eric','Mena','menaeric@hotmail.com','$2y$10$r9g.MlXqvP3o7RH.g2nzgepasUEubcuEylNepVFdR6woCGn7ZHLAK','1976-03-03','h','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(19,'Micaela','Gomez','mica@gmail.com','$2y$10$3hkqvmIDx8EGXbCs90gmyObSySFY4LAACv/f72byGKhjZ1WOf4nmG','1978-10-12','i',NULL,NULL,NULL,NULL,NULL,NULL),(20,'Jose','Retamal','jose@gmail.com','$2y$10$TWjQlikyERr1Iq4WMdhRkutYPIdASpn9ld2gMa0ZYIKkm4nU6r/bm','1968-10-14','i','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(21,'Manuel','Rodriguez','manuel@gmail.com','$2y$10$SpxSNpQ5TU4eF4OJGHDDI.gp2rE26/wGtwY3uIkNti2UCtsjWD5zO','1978-11-20','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(22,'Claudio','Cáceres','claudio@gmail.com','$2y$10$Sji9paHBTsUekp41ubTIL.6DdYSObJQTVV3Mxe3jjfeq7le.lhNz6','1978-11-20','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(23,'Eduardo','Zelada','eduardo@gmail.com','$2y$10$p8OqYrUNZ.HeDb1YR0612O.TZOqTVsDZAzkzI.QTTfdhzp8CXvE1O','1962-11-28','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(24,'German','Ojeda','german@gmail.com','$2y$10$SlTOwZB4bLjG2ZQ5PKX4Y.mAUSWcExBlzMJABTt8WSZISKvOTCdua','1956-12-15','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(25,'Nicanor','Garcia','nicanor@gmail.com','$2y$10$mvcNb.RwhQgn55zu0mKNv.gFDPuJxrquQiNspzjpzQtgG0ym03eqG','1987-06-15','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(26,'Magdalena','Fuentes','magdalena@gmail.com','$2y$10$Zv1omQjCZPQ8I12wcnFpZu1yZs6An.Drhm19ueHccfjV3NgSKgy52','1976-12-30','m','perfilDesconocido.png','5dba0a7137d48.jpg',NULL,NULL,NULL,NULL),(27,'Gerardo','Morales','gerardo@gmail.com','$2y$10$qBnBdcxpz.8YLWGrCVRHe.vECGeFIQ4QFDYwWM2LvYWoBlEPHI.Fy','1979-08-15','h','avatar01.png ',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (1,'Eric','Mena','menaericdaniel@gmail.com','$2y$10$VRKeOkfsuinefaFkA2t7..cW8SDDN3wXO8Ak4MR3t66ilFu2.Ssmm','1976-03-03','h','perfilHombre.png ',NULL,NULL,'General Pico #10631, barrio El Libertador, Loma Hermosa, Buenos Aires',1147394347,1134016800),(2,'Alexis','Veiga','veigalexis16@gmail.com','$2y$10$3gtsuupd4fz1DCXayxRPS.mEtGKiwdytD8cUq1TNAkPiUzDjhRUfO','1994-04-28','h','avatar01.png ','',NULL,NULL,NULL,NULL),(3,'Marcos','Palladini','marcospalladini3@gmail.com','$2y$10$Kk9ydNTYHoDj4FhclFKSuOEgIyzJl84wy.PML2ELouCaZm5mnmTzi','1988-03-14','h','avatar19.png ','',NULL,NULL,NULL,NULL),(4,'Brenda','Ruiz','brendaruiz@gmail.com','$2y$10$.PWAolL1hKNF/jerOkan..m5zqc9UfI1YVuHytZCc2u6.UnzTXD6a','1993-12-21','m','avatar10.png ','',NULL,NULL,NULL,NULL),(5,'Micaela','Padilla','micaela@gmail.com','$2y$10$imD8p62zM6FXlmMU7yuEWeYjE9Vfx7/ndpTTDpB92WCAfxy0z8sLW','1989-10-21','m','perfilMujer.png ','',NULL,NULL,NULL,NULL),(6,'Sabrina','Molina','sabrina@gmail.com','$2y$10$5JK7XOIwF0vIyIsvxomM/ef1w6iqFdNuUStYjNGVk9Zax8JV88o.i','1959-04-14','m','avatar02.png ','',NULL,NULL,NULL,NULL),(7,'Osvaldo','Medina','osvaldo@gmail.com','$2y$10$l6jvEKjL2OrhAGQ0iGp9yel8UJ9/TF7KN.oA3fz.bYb9TOdom0J1C','1987-05-23','h','avatar03.png ',NULL,NULL,NULL,NULL,NULL),(8,'Diego','Fuentes','diego@gmail.com','$2y$10$DqQhygDaDUvZovhzsRWpbuISW9tcV5lZZpP/VwsA4MeP4rejkG.dy','1986-12-12','h','avatar13.png ',NULL,NULL,NULL,NULL,NULL),(9,'Mariano','Toledo','mariano@gmail.com','$2y$10$GihWS/gm.Du2/P0TYpLpPu6kOIKcU3MAB.mlRp8SuVTaQ/xwWX8Ly','1990-08-15','h','avatar14.png ',NULL,NULL,NULL,NULL,NULL),(10,'Sandra','Perez','sandra@gmail.com','$2y$10$2Gi3ouFohMkMgv339g4BEuEbmLJbH.2VJiUwuQl1D/XLp9KnmlCBK','1967-05-04','m','avatar15.png ',NULL,NULL,NULL,NULL,NULL),(11,'Gloria','Sanchez','gloria@gmail.com','$2y$10$i9ZIRMwpiDIJaJV7c49.eO5zFo8RjyDAy7xURYN8CINjWVobL8JvS','1983-07-31','m','avatar17.png ',NULL,NULL,NULL,NULL,NULL),(12,'Rosa','Garcia','rosa@gmail.com','$2y$10$WJEYoUEN9hYKKmqUS9JVtOxQAYLJ8w3IpJU7vxD6fZldS9ZlynJ8O','1946-04-13','m','avatar04.png ',NULL,NULL,NULL,NULL,NULL),(13,'Ana','Guzman','ana@gmail.com','$2y$10$84lvinyTlmpweVWgFaiCceeoRL2Yxx7CK6wczY85Yu1ylB2mF9hX6','1968-10-26','m','avatar16.png ',NULL,NULL,NULL,NULL,NULL),(14,'Franco','Devita','franco@gmail.com','$2y$10$eb9rtcFdj39l3GtyFN3vAeBV.CiL2Uyf9UKeKMdfOTGCkfOcbA1HW','1967-12-03','h','avatar22.png ',NULL,NULL,NULL,NULL,NULL),(15,'Santiago','Zambrano','santiago@gmail.com','$2y$10$WbCmjCicOseTe.NCO1Ujlexo0pxgb8l6E/E6buDG3tCBmP4k5W1Tu','1999-03-02','h','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(16,'Nicolas','Gonzalez','nicolas@gmail.com','$2y$10$p8.Jzmvd6JytqS.b5meav.EgIyGiadBVuDVGkmpDRx7BhR3cf7TUO','1978-04-26','h','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(17,'Julio','Lopez','julio@gmail.com','$2y$10$QYV9Gy8IA0tqsSUSLma2mOdIHqD/nFAz0A2xM/0CZ/L0WdL2cE6DC','1978-08-15','h','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(18,'Eric','Mena','menaeric@hotmail.com','$2y$10$r9g.MlXqvP3o7RH.g2nzgepasUEubcuEylNepVFdR6woCGn7ZHLAK','1976-03-03','h','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(19,'Micaela','Gomez','mica@gmail.com','$2y$10$3hkqvmIDx8EGXbCs90gmyObSySFY4LAACv/f72byGKhjZ1WOf4nmG','1978-10-12','i','perfilDesconocido.png ',NULL,NULL,NULL,NULL,NULL),(20,'Jose','Retamal','jose@gmail.com','$2y$10$TWjQlikyERr1Iq4WMdhRkutYPIdASpn9ld2gMa0ZYIKkm4nU6r/bm','1968-10-14','i','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(21,'Manuel','Rodriguez','manuel@gmail.com','$2y$10$SpxSNpQ5TU4eF4OJGHDDI.gp2rE26/wGtwY3uIkNti2UCtsjWD5zO','1978-11-20','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(22,'Claudio','Cáceres','claudio@gmail.com','$2y$10$Sji9paHBTsUekp41ubTIL.6DdYSObJQTVV3Mxe3jjfeq7le.lhNz6','1978-11-20','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(23,'Eduardo','Zelada','eduardo@gmail.com','$2y$10$p8OqYrUNZ.HeDb1YR0612O.TZOqTVsDZAzkzI.QTTfdhzp8CXvE1O','1962-11-28','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(24,'German','Ojeda','german@gmail.com','$2y$10$SlTOwZB4bLjG2ZQ5PKX4Y.mAUSWcExBlzMJABTt8WSZISKvOTCdua','1956-12-15','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(25,'Nicanor','Garcia','nicanor@gmail.com','$2y$10$mvcNb.RwhQgn55zu0mKNv.gFDPuJxrquQiNspzjpzQtgG0ym03eqG','1987-06-15','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(26,'Magdalena','Fuentes','magdalena@gmail.com','$2y$10$Zv1omQjCZPQ8I12wcnFpZu1yZs6An.Drhm19ueHccfjV3NgSKgy52','1976-12-30','m','perfilDesconocido.png','',NULL,NULL,NULL,NULL),(27,'Gerardo','Morales','gerardo@gmail.com','$2y$10$qBnBdcxpz.8YLWGrCVRHe.vECGeFIQ4QFDYwWM2LvYWoBlEPHI.Fy','1979-08-15','h','avatar01.png ',NULL,NULL,NULL,NULL,NULL),(28,'Marcelo','Longobardi','marcelo@gmail.com','$2y$10$pxpSCT5Z7h4q2HICIViZWeseFktvncAaXSstAoOmEjuIWW6alcOAS','1963-12-26','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL),(29,'Omar','Fernandez','omar@fermandez.com','$2y$10$83dHwwsZJGXRhJJUiaY1OuO31FNbMMFJACFgzKigu1AUwAtiyL62S','1986-06-23','h','perfilDesconocido.png',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-07  5:22:21
+-- Dump completed on 2019-11-11 17:10:46
