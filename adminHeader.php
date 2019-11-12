@@ -58,7 +58,7 @@
          <a class="nav-link" href="adminCodigo.php">Codigo <span class="sr-only">(current)</span></a>
        </li>
        <li class="nav-item dropdown active">
-         <a class="nav-link" href="index.php">Salir <span class="sr-only">(current)</span></a>
+         <a class="nav-link" href="adminAccess.php?cerrar=1">Salir <span class="sr-only">(current)</span></a>
        </li>
      </ul>
    </div>

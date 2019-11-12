@@ -1,18 +1,10 @@
 <?php
 include_once('autoload.php');
-if ($_POST) {
 
-
-    $errores = Validacion::validarAdmin($_POST,$pdo,'admin');
-    if ($errores == null) {
-      // Autenticacion::inicioSesion($usuario);
-      header("location:admin.php");
-    }else{
-      header("location:adminAccess.php?error=$errores");
-    };
-
-
+if (!isset($_SESSION["adminUser"])&!isset($_SESSION["adminPass"])) {
+  header("location:error.php");
 }
+
  ?>
 
  <!DOCTYPE html>

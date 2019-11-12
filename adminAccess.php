@@ -1,3 +1,21 @@
+<?php
+if (isset($_GET["cerrar"])) {
+	session_start();
+	session_destroy();
+}
+include_once("autoload.php");
+
+if ($_POST) {
+
+    $errores = Validacion::validarAdmin($_POST,$pdo,'admin');
+    if ($errores == null) {
+      Autenticacion::inicioAdmin($_POST,$pdo);
+      header("location:admin.php");
+    }else {
+    	header("location:adminAccess.php?error=$errores");
+    };
+}
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -98,7 +116,7 @@ html {
 				</div>
 				<div class="d-flex justify-content-center form_container">
 
-					<form action="admin.php" method="post">
+					<form action="adminAccess.php" method="post">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
